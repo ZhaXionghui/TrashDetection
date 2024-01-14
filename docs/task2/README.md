@@ -60,13 +60,13 @@ https://github.com/Megvii-BaseDetection/YOLOX
 
 各模型结构和骨干网络的代表模型在COCO数据集上精度mAP和单卡Tesla V100上预测速度(FPS)对比图。
 
-[![img](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/206434766-caaa781b-b922-481f-af09-15faac9ed33b.png)](https://user-images.githubusercontent.com/61035602/206434766-caaa781b-b922-481f-af09-15faac9ed33b.png)
+[![img](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/206434766-caaa781b-b922-481f-af09-15faac9ed33b.png)](https://user-images.githubusercontent.com/61035602/206434766-caaa781b-b922-481f-af09-15faac9ed33b.png)
 
 #### ⌚️移动端模型性能对比
 
 各移动端模型在COCO数据集上精度mAP和高通骁龙865处理器上预测速度(FPS)对比图。
 
-[![img](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/206434741-10460690-8fc3-4084-a11a-16fe4ce2fc85.png)](https://user-images.githubusercontent.com/61035602/206434741-10460690-8fc3-4084-a11a-16fe4ce2fc85.png)
+[![img](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/206434741-10460690-8fc3-4084-a11a-16fe4ce2fc85.png)](https://user-images.githubusercontent.com/61035602/206434741-10460690-8fc3-4084-a11a-16fe4ce2fc85.png)
 
 [PaddleDetection安装文档](https://gitee.com/PaddlePaddle/PaddleDetection/blob/release/2.6/docs/tutorials/INSTALL_cn.md)
 
@@ -80,7 +80,7 @@ https://github.com/Megvii-BaseDetection/YOLOX
 
 - **目标检测任务**
 
-![image-20231127183309962](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183309962.png)
+![image-20231127183309962](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183309962.png)
 
 
 
@@ -108,19 +108,19 @@ PP-PicoDet模型有如下特点：
 
 #### PP-PicoDet算法特色
 
-![image-20231127174333731](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127174333731.png)
+![image-20231127174333731](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127174333731.png)
 
 
 
 #### PP-PicoDet算法性能
 
-![image-20231127174554571](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127174554571.png)
+![image-20231127174554571](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127174554571.png)
 
 
 
 #### PP-PicoDet算法结构
 
-![image-20231127175013612](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127175013612.png)
+![image-20231127175013612](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127175013612.png)
 
 论文：[[2111.00902] PP-PicoDet: A Better Real-Time Object Detector on Mobile Devices (arxiv.org)](https://arxiv.org/abs/2111.00902)
 
@@ -128,31 +128,31 @@ PP-PicoDet模型有如下特点：
 
 - PP-PicoDet算法——Backbone
 
-![image-20231127180047771](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180047771.png)
+![image-20231127180047771](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180047771.png)
 
 
 
 - PP-PicoDet算法——CSP-PAN
 
-![image-20231127180148459](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180148459.png)
+![image-20231127180148459](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180148459.png)
 
 
 
 - PP-PicoDet算法——SimOTA
 
-![image-20231127180244810](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180244810.png)
+![image-20231127180244810](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180244810.png)
 
 
 
 - PP-PicoDet算法——NAS
 
-![image-20231127180323341](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180323341.png)
+![image-20231127180323341](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180323341.png)
 
 
 
 - PP-PicoDet算法——其他优化
 
-![image-20231127180409352](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180409352.png)
+![image-20231127180409352](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127180409352.png)
 
 ### NanoDet
 
@@ -164,7 +164,7 @@ PP-YOLOv2简介：
 
 [PP-YOLOv2](https://arxiv.org/abs/2104.10419)，它是基于[YOLOv3](https://arxiv.org/abs/1804.02767)的优化模型，在尽可能不引入额外计算量的前提下提升模型精度。PP-YOLOv2(R50）在COCO 2017数据集mAP达到49.5%，在 640x640 的输入尺寸下，FPS 达到 68.9FPS，采用 TensorRT 加速，FPS 高达 106.5。PP-YOLOv2（R101）的mAP达到50.3%，对比当前最好的YOLOv5模型，相同的推理速度下，精度提升1.3%；相同精度下，推理速度加速15.9%。本章节重点围绕目标检测任务的优化技巧，并重点解读PP-YOLOv2模型的优化历程。
 
-![image-20231130200616004](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231130200616004.png)
+![image-20231130200616004](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231130200616004.png)
 
 优化过程：
 
@@ -178,7 +178,7 @@ PP-YOLOv2中采用了大量数据增广方式，这里逐一进行说明
 
 以下图为例，将任意两张图片加权叠加作为输入。
 
-![IMG_260](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image002.gif)
+![IMG_260](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image002.gif)
 
 ###### 2）RandomDistort
 
@@ -218,11 +218,11 @@ PP-YOLOv2中采用了大量数据增广方式，这里逐一进行说明
 
 PP-YOLOv2不同于YOLOv3的DarkNet53骨干网络，PP-YOLOv2使用更加优异的ResNet50vd-DCN作为模型的骨干网络。它可以被分为ResNet50vd和DCN两部分来看。ResNet50vd是指拥有50个卷积层的ResNet-D网络。ResNet结构如下图所示：
 
-![IMG_261](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image004.gif)
+![IMG_261](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image004.gif)
 
 ResNet系列模型在2015年提出后，其模型结构不断被业界开发者持续改进，在经过了B、C、D三个版本的改进后，最新的ResNetvd结构能在基本不增加计算量的情况下显著提高模型精度。ResNetvd的第一个卷积层由三个卷积构成，卷积核尺寸均是3x3，步长分别为2，1，1，取代了上图的7x7卷积，在参数量基本不变的情况下增加网络深度。同时，ResNet-D在ResNet-B的基础上，在下采样模块加入了步长为2的2x2平均池化层，并将之后的卷积步长修改为1，避免了输入信息被忽略的情况。B、C、D三种结构的演化如下图所示：
 
-![IMG_262](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image006.gif)
+![IMG_262](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image006.gif)
 
 ResNetvd下采样模块代码参考实现：[代码链接](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/ppdet/modeling/backbones/resnet.py#L265)
 
@@ -269,11 +269,11 @@ self.conv_dcn = DeformConv2D(
 
 PP-YOLOv2模型中使用PAN和SPP结构来强化模型结构的Neck部分。[PAN（Path Aggregation Network）](https://arxiv.org/abs/1803.01534)结构，作为[FPN](https://arxiv.org/abs/1612.03144)的变形之一，通过从上至下和从下到上两条路径来聚合特征信息，达到更好的特征提取效果。具体结构如下图，其中C3, C4, C5为3个不同level的feature，分别对应stride为(8, 16, 32)；其中Detection Block使用CSP connection方式，对应ppdet的[PPYOLODetBlockCSP模块](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/ppdet/modeling/necks/yolo_fpn.py#L359)
 
-![IMG_263](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image008.gif)
+![IMG_263](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image008.gif)
 
 SPP在[Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition](https://arxiv.org/pdf/1406.4729.pdf)中提出，可以通过多个不同尺度的池化窗口提取不同尺度的池化特征，然后把特征组合在一起作为输出特征，能有效的增加特征的感受野，是一种广泛应用的特征提取优化方法。PPYOLO-v2中使用三个池化窗口分别是(5, 9, 13)，得到特征通过concat拼接到一起，最后跟一个卷积操作，详见[SPP模快](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/ppdet/modeling/necks/yolo_fpn.py#L114)。SPP会插入到PAN第一组计算的[中间位置](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/ppdet/modeling/necks/yolo_fpn.py#L903)。
 
-![IMG_264](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image010.gif)
+![IMG_264](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image010.gif)
 
 除此之外，PP-YOLOv2 Neck部分引入了[Mish](https://arxiv.org/pdf/1908.08681.pdf)激活函数。
 
@@ -351,7 +351,7 @@ loss_iou_aware = loss_iou_aware * self.loss_weight
 
 Grid Sensitive是YOLOv4引入的优化方法，如下图所示，YOLO系列模型中使用sigmoid函数来预测中心点相对于grid左上角点的偏移量。
 
-![IMG_265](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image012.gif)
+![IMG_265](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image012.gif)
 
 然而，当中心点位于grid的边线上时，使用sigmoid函数较难预测。因此，对于预测值加上一个缩放和偏移，保证预测框中心点能够有效的拟合真实框刚好落在网格边线上的情况。
 
@@ -429,7 +429,7 @@ use_ema: trueema_decay: 0.9998
 
 与[Dropout](https://paddlepedia.readthedocs.io/en/latest/tutorials/deep_learning/model_tuning/regularization/dropout.html?highlight=Dropout)类似，DropBlock是一种防止过拟合的方法。因为卷积特征图的相邻点之间包含密切相关的语义信息，以特征点的形式随机Drop对于目标检测任务通常不太有效。基于此，DropBlock算法在Drop特征的时候不是以特征点的形式来Drop的，而是会集中Drop掉某一块区域，从而更适合被应用到目标检测任务中来提高网络的泛化能力，如下图(c)中所示。
 
-![IMG_266](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image014.gif)
+![IMG_266](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/clip_image014.gif)
 
 DropBlock的[代码实现](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.1/ppdet/modeling/necks/yolo_fpn.py#L196)如下所示：
 
@@ -466,7 +466,7 @@ https://blog.csdn.net/qq_41375609/article/details/116375385
 
 **PP-YOLOv2：** 在同等速度下，精度超越 YOLOv5。相较于 PP-YOLO，v2 版本在 COCO 2017 test-dev 上的精度提升了 3.6%，由 45.9% 提升到了 49.5%；在 640*640 的输入尺寸下，FPS 达到 68.9FPS，而采用 TensorRT 加速的话，FPS 达到了 106.5。这样的性能，超越了当前所有同等计算量下的检测器，包括 YOLOv4-CSP 和 YOLOv5l ，如果将骨架网络从 ResNet50 更换为 ResNet101，PP-YOLOv2 的优势则更为显著：mAP 达到 50.3%，速度比同计算量的 YOLOv5x 高出了 15.9%。
 
-![image-20231130223508620](../images/image-20231130223508620.png)
+![image-20231130223508620](../../images/image-20231130223508620.png)
 
 **BackBone骨干网络**
 
@@ -480,7 +480,7 @@ yolov3使用的是较为大型的darknet53，考虑到resnet更广泛的应用�
 
 原始yolo3的检测头是一个非常简单的结构，通过3x3卷积并最后用1x1卷积调整到自己所需要的通道数目。输出通道数为3(K+5)，3代表每个层设定的三种尺寸的锚框，K代表类别数目，5又可以分成4+1，分别是目标框的4个参数，以及1个参数来判断框里是否有物体。
 
-![image-20231130223537276](../images/image-20231130223537276.png)
+![image-20231130223537276](../../images/image-20231130223537276.png)
 
 
 
@@ -496,11 +496,11 @@ MobileNetV3 由 google 团队在 2019 年提出的
 
 相比于 MobileNetV2 ，在 ImageNet 分类任务中正确率上升了 3.2%，计算延时降低了 20%
 
-<img src="../images/image-20231130224151589.png" alt="image-20231130224151589" style="zoom: 67%;" />
+<img src="../../images/image-20231130224151589.png" alt="image-20231130224151589" style="zoom: 67%;" />
 
 **更新 BlocK**
 
-<img src="../images/image-20231130224257371.png" alt="image-20231130224257371" style="zoom:80%;" />
+<img src="../../images/image-20231130224257371.png" alt="image-20231130224257371" style="zoom:80%;" />
 
 注意力机制：针对每一个 channel 进行池化处理，得到了 channel 个数个元素，通过两个全连接层，得到输出的这个向量。第一个全连接层的节点个数等于 channel 个数的 1/4，然后第二个全连接层的节点就和 channel 保持一致。这个得到的输出就相当于对原始的特征矩阵的每个 channel 分析出来了其重要程度，越重要的赋予越大的权重，越不重要的就赋予越小的权重。
 
@@ -512,7 +512,7 @@ MobileNetV3 由 google 团队在 2019 年提出的
 
 第二个则是精简 Last Stage。作者在使用过程中发现原始的最后结构比较耗时。精简之后第一个卷积没有变化，紧接着直接进行平均池化操作，再跟两个卷积层。和原来比起来明显少了很多层结构。作者通过实验发现这样做正确率基本没有损失，但是速度快了很多，节省了 7ms 的推理时间，别看 7ms 少，它占据了全部推理时间的 11%。
 
-<img src="../images/image-20231130224504329.png" alt="image-20231130224504329" style="zoom:67%;" />
+<img src="../../images/image-20231130224504329.png" alt="image-20231130224504329" style="zoom:67%;" />
 
 
 
@@ -564,7 +564,7 @@ Yolo Head实际上所做的工作就是对特征点进行判断，判断特征�
 
 PP-YOLO在[COCO](https://gitee.com/link?target=http%3A%2F%2Fcocodataset.org) test-dev2017数据集上精度达到45.9%，在单卡V100上FP32推理速度为72.9 FPS, V100上开启TensorRT下FP16推理速度为155.6 FPS。
 
-![img](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/ppyolo_map_fps.png)
+![img](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/ppyolo_map_fps.png)
 
 [1.3M超轻量PP-YOLO Tiny](https://cloud.tencent.com/developer/article/1820842)
 
@@ -580,7 +580,7 @@ PP-YOLO在[COCO](https://gitee.com/link?target=http%3A%2F%2Fcocodataset.org) tes
 
 **精度速度数据**
 
-![img](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/txvbvozips.png)
+![img](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/txvbvozips.png)
 
 首先，PP-YOLO Tiny 沿用了 PP-YOLO 系列模型的 spp，iou loss, drop block, mixup, sync bn 等优化方法，并进一步采用了近 10 种针对移动端的优化策略：
 
@@ -620,7 +620,7 @@ b.原来所有与真实框 IoU 小于 0.7 的 anchor 会被当错负例，优化
 
 通过以上一系列优化，我们就得到了 1.3M 超轻量的 PP-YOLO tiny 模型，而算法可以通过 Paddle Lite 直接部署在麒麟 990 等轻量化芯片上，预测效果也非常理想。
 
-![img](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/011zwr9npw.png)
+![img](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/011zwr9npw.png)
 
 
 
@@ -630,59 +630,59 @@ b.原来所有与真实框 IoU 小于 0.7 的 anchor 会被当错负例，优化
 
 #### **PP-YOLOE算法概览**
 
-![image-20231127183506840](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183506840.png)
+![image-20231127183506840](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183506840.png)
 
 
 
 ##### **PP-YOLOE详解 — Backbone & Neck**
 
-![image-20231127183604596](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183604596.png)
+![image-20231127183604596](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183604596.png)
 
 
 
 ##### **PP-YOLOE详解 — ET-Head**
 
-![image-20231127183644145](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183644145.png)
+![image-20231127183644145](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183644145.png)
 
 
 
 ##### **PP-YOLOE详解 — Assigner**
 
-![image-20231127183710501](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183710501.png)
+![image-20231127183710501](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183710501.png)
 
 ##### **PP-YOLOE详解 — Loss**
 
-![image-20231127183733117](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183733117.png)
+![image-20231127183733117](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183733117.png)
 
 
 
 ##### **PP-YOLOE总结**
 
-![image-20231127183831941](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183831941.png)
+![image-20231127183831941](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183831941.png)
 
 
 
 #### **PP-YOLOE+**
 
-![image-20231127183950812](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183950812.png)
+![image-20231127183950812](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127183950812.png)
 
 
 
 ##### **PP-YOLOE+：模型**
 
-![image-20231127184105028](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127184105028.png)
+![image-20231127184105028](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127184105028.png)
 
 ##### **PP-YOLOE+：预训练**
 
-![image-20231127184128926](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127184128926.png)
+![image-20231127184128926](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127184128926.png)
 
 ##### **PP-YOLOE+：训练**
 
-![image-20231127184154812](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127184154812.png)
+![image-20231127184154812](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127184154812.png)
 
 ##### **PP-YOLOE+：部署优化**
 
-![image-20231127184218878](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127184218878.png)
+![image-20231127184218878](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/image-20231127184218878.png)
 
 
 
@@ -716,7 +716,7 @@ YOLOv8的本质上是Ultralytics在YOLOv5等之前的系列的基础上的进一
 
 在官方给出的对比中，YOLOv8在coco数据集上的效果超过了以往yolo系列的所有模型：
 
-![yolo-comparison-plots](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/yolo-comparison-plots.png)
+![yolo-comparison-plots](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/yolo-comparison-plots.png)
 
 
 
@@ -741,7 +741,7 @@ PP-ShiTuV2 是基于 PP-ShiTuV1 改进的一个实用轻量级通用图像识别
 
 PP-ShiTuV2 网络结构如下图所示：
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/%E5%9B%BE1-17013514288831.png" alt="图1" style="zoom:67%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/%E5%9B%BE1-17013514288831.png" alt="图1" style="zoom:67%;" />
 
 ##### 2.2 主体检测
 
@@ -749,7 +749,7 @@ PP-ShiTuV2 网络结构如下图所示：
 
 考虑到检测速度、模型大小、检测精度等因素， PP-ShiTu 中的主体检测使用的是 PP-PicoDet。
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/%E5%9B%BE2-17013514288832.png" alt="图2" style="zoom:82%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/%E5%9B%BE2-17013514288832.png" alt="图2" style="zoom:82%;" />
 
 PP-PicoDet 是由 PaddleDetection 开发的一系列新的目标检测模型。具体来说，对于骨干，利用了 PP-LCNet（其网络结构如上所示），这有助于提高检测器的推理速度和 mAP。对于颈部，结合了 一种新的 CSP-PANFPN 结构，有助于提高特征图提取能力。
 
@@ -761,7 +761,7 @@ PP-PicoDet 是由 PaddleDetection 开发的一系列新的目标检测模型。�
 
 为了图像识别任务的灵活定制，将整个网络分为 Backbone、Neck、Head 和 Loss 部分，整体结构如下图所示：
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/%E5%9B%BE3.png" alt="图3" style="zoom:80%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/%E5%9B%BE3.png" alt="图3" style="zoom:80%;" />
 
 ###### 2.3.1 Backbone
 
@@ -771,7 +771,7 @@ PP-PicoDet 是由 PaddleDetection 开发的一系列新的目标检测模型。�
 
 • Rep 策略：重参数化（Reparameterization）策略是一种优化技术，用于在不影响模型性能的情况下减少计算量。具体说来，对同层的深度可分离卷积（Depthwise Separable Convolution）进行融合，融合操作（如下图所示）是将同层的多个深度可分离卷积合并为一个更大的深度可分离卷积操作，从而减少计算量。
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/%E5%9B%BE4-17013514288833.png" alt="图4" style="zoom:67%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/%E5%9B%BE4-17013514288833.png" alt="图4" style="zoom:67%;" />
 
 • PW 卷积：深度可分离卷积通常由一层 DW 卷积和一层 PW 卷积组成，用以替换标准卷积.为了使深度可分离卷积具有更强的拟合能力，尝试使用两层 PW 卷积，同时为了控制模型效率不受影响，两层PW 卷积设置为：第一个在通道维度对特征图压缩，第二个再通过放大还原特征图通道。
 
@@ -813,7 +813,7 @@ RT-DETR 是第一个实时端到端目标检测模型。RT-DETR-L 在 COCO val20
 
 下图展示了 RT-DETR 模型的测试效果：
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-1.png" alt="RT-1" style="zoom:70%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-1.png" alt="RT-1" style="zoom:70%;" />
 
 #### 二、模型详解：
 
@@ -828,7 +828,7 @@ RT-DETR 是第一个实时端到端目标检测模型。RT-DETR-L 在 COCO val20
 
 RT-DETR模型架构如下图所示：
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-2.png" alt="RT-2" style="zoom:90%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-2.png" alt="RT-2" style="zoom:90%;" />
 
 ##### 2.2 主干网络
 
@@ -840,7 +840,7 @@ RT-DETR模型架构如下图所示：
 
 对于颈部网络，RT-DETR采用了一层Transformer的Encoder，用来处理主干网络输出的 S5 特征，即RT-DETR模型架构图中所展示的AIFI（Attention-based Intra-scale Feature Interaction）模块，该模块包含标准的MSAH（或者Deformable Attention）和FFN，如下图所展示的公式，注意，其中省略了FFN的处理。
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-4.png" alt="RT-4" style="zoom:90%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-4.png" alt="RT-4" style="zoom:90%;" />
 
 具体说来，首先，将二维的 S5 特征拉成向量，然后交给AIFI模块处理，其数学过程就是多头自注意力与FFN，随后，再将输出调整回二维，记作 S5 ，以便去完成后续的“跨尺度特征融合”。之所以RT-DETR的AIFI只处理最后的S5 特征，是出于两点考虑：
 
@@ -849,7 +849,7 @@ RT-DETR模型架构如下图所示：
 
 综上，RT-DETR作者团队认为只需将Encoder作用在S5 特征上，既可以大幅度地减小计算量、提高计算速度，又不会损伤到模型的性能。为了验证这一点，作者团队设计了若干对照组，如下图所示。
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-5.png" alt="RT-5" style="zoom:80%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-5.png" alt="RT-5" style="zoom:80%;" />
 
 通过对比试验，作者证明：
 
@@ -871,13 +871,13 @@ RT-DETR模型架构如下图所示：
 
 ##### 3.1 和实时检测器对比
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-6.png" alt="RT-6" style="zoom:50%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-6.png" alt="RT-6" style="zoom:50%;" />
 
 RT-DETR-L 在 COCO val2017 上的精度为 53.0% AP ，在 T4 GPU 上的 FPS 为 114，RT-DETR-X 的精度为 54.8% AP，FPS 为 74。相同尺度的版本下，RT-DETR 比 YOLO 系列检测器的精度都更高一些，端到端速度都更快一些。
 
 ##### 3.2 和端到端检测器对比
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-7.png" alt="RT-7" style="zoom:77%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/RT-7.png" alt="RT-7" style="zoom:77%;" />
 
 RT-DETR-R50 在 COCO val2017 上的精度为 53.1% AP，在 T4 GPU 上的 FPS 为 108，RT-DETR-R101 的精度为 54.3% AP，FPS 为 74。总结来说，RT-DETR 比具有相同 backbone 的 DETR 系列检测器有比较显著的精度提升和速度提升。
 
@@ -1068,8 +1068,8 @@ python tools/train.py -c configs/ppyolo/ppyolo_tiny_650e_coco.yml --eval &> ./lo
 
 ```yml
 _BASE_: [
-  '../datasets/trash_coco_detection.yml',
-  '../runtime.yml',
+  '../../datasets/trash_coco_detection.yml',
+  '../../runtime.yml',
   '_base_/picodet_v2.yml',
   '_base_/optimizer_300e.yml',
   '_base_/picodet_416_reader.yml',
@@ -1581,7 +1581,7 @@ python run_demo.py
 #--||test 测试机图片目录
 
 # 数据集源路径root、训练集、验证集、测试集地址
-path: ../data
+path: ../../data
 train: images/train # root下的训练集地址 
 val: images/val # root下的验证集地址
 test:  test             # root下的验证集地址
@@ -1677,15 +1677,15 @@ success = model.export(format='onnx')
 
 ##### 训练结果：
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/confusion_matrix.png" alt="confusion_matrix" style="zoom: 25%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/confusion_matrix.png" alt="confusion_matrix" style="zoom: 25%;" />
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/F1_curve.png" alt="F1_curve" style="zoom: 33%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/F1_curve.png" alt="F1_curve" style="zoom: 33%;" />
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/labels.jpg" alt="labels" style="zoom:33%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/labels.jpg" alt="labels" style="zoom:33%;" />
 
-![PR_curve](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/PR_curve.png)
+![PR_curve](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/PR_curve.png)
 
-<img src="../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/results.png" alt="results" style="zoom:36%;" />
+<img src="../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/results.png" alt="results" style="zoom:36%;" />
 
 一百五十轮训练过程，损失变换图。
 
@@ -1717,21 +1717,21 @@ mAP(50%-95%)，mAP(50%)：各类物品识别平均精确度在IOU为50%-95%区�
 
 ##### 1.不同模型的参数量，检测速度速度，以及运行模型的硬件
 
-![6](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/6.jpg)
+![6](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/6.jpg)
 
 ##### 2.不同模型的参数量和mAP(50%-95%)的关系
 
-![1](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/1.jpg)
+![1](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/1.jpg)
 
 ##### 3.不同模型mAP(50%)和参数量的关系
 
-![2](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/2.jpg)
+![2](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/2.jpg)
 
 ##### 4.不同模型的mAP(50%)和mAP(50%-95%)的关系
 
-![3](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/3.jpg)
+![3](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/3.jpg)
 
 ##### 5.不同模型的mAP(50%)和处理速度的关系
 
-![4](../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/4.jpg)
+![4](../../images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/4.jpg)
 
