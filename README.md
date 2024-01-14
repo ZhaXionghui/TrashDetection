@@ -51,3 +51,15 @@
 各移动端模型在COCO数据集上精度mAP和高通骁龙865处理器上预测速度(FPS)对比图。
 
 [![img](./images/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A1-%20%E8%BD%BB%E9%87%8F%E5%9E%8B%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C/206434741-10460690-8fc3-4084-a11a-16fe4ce2fc85.png)](https://user-images.githubusercontent.com/61035602/206434741-10460690-8fc3-4084-a11a-16fe4ce2fc85.png)
+
+
+
+# 实验报告2- 基于生成模型的数据增强
+
+> 本次的数据生成主要采用Stable Diffusion，基于Stable Diffusion我们利用其文生图，图生图的能力生成了下雪，下雨，沙尘暴，雾霾等多种不同天气的数据，于此同时我们也在夜晚条件下，通过Controlnet获得不同光照情况下生成的数据，生成超万张新的数据。我们给出了相应的生成参数同时也对与Stable Diffusion相关的GAN，VAE，潜在扩散模型（Latent Diffusion Models，LDMs）一些基础内容做了讲解。
+>
+> 我们还对数据标注的原理与方法进行了较为详细的讲解，并进行了完整操作流程的演示。
+
+具体参数及技术细节请参照
+
+`传送门`：[实验报告2- 基于生成模型的数据增强](docs/task2/README.md)
