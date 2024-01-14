@@ -9,7 +9,11 @@
 - [实验报告2- 基于生成模型的数据增强](#实验报告2--基于生成模型的数据增强)
   - [生成式深度学习模型](#生成式深度学习模型)
     - [（Generative Adversarial Network	，GAN）](#generative-adversarial-networkgan)
-    - [（Variational autoencoder，VAE）](#variational-autoencodervae)
+    - [变分自编码器（Variational autoencoder，VAE）](#变分自编码器variational-autoencodervae)
+      - [**自动编码器（Autoencoder，AE）**](#自动编码器autoencoderae)
+      - [**变分自动编码器（Variational Autoencoder，VAE）**](#变分自动编码器variational-autoencodervae)
+          - [VAE的数学建模过程：](#vae的数学建模过程)
+          - [vae的训练过程：](#vae的训练过程)
     - [潜在扩散模型（Latent Diffusion Models，LDMs）](#潜在扩散模型latent-diffusion-modelsldms)
       - [方法](#方法)
       - [图片感知压缩（Perceptual Image Compression）](#图片感知压缩perceptual-image-compression)
@@ -19,8 +23,11 @@
     - [天气状态](#天气状态)
       - [下雨（不同程度的）](#下雨不同程度的)
       - [下雪（不同程度的）](#下雪不同程度的)
+      - [沙尘暴](#沙尘暴)
+      - [雾/雾霾](#雾雾霾)
     - [光线状态](#光线状态)
       - [较暗、傍晚、路灯（或其它灯光）等](#较暗傍晚路灯或其它灯光等)
+    - [一些在线生成网站](#一些在线生成网站)
   - [数据标注——原理与方法](#数据标注原理与方法)
     - [什么是数据标注？](#什么是数据标注)
     - [数据标记的工作原理](#数据标记的工作原理)
@@ -39,9 +46,70 @@
 
 
 
-### （Variational autoencoder，VAE）
+### 变分自编码器（Variational autoencoder，VAE）
 
+#### **自动编码器（Autoencoder，AE）**
 
+再讲VAE之前，有必要先简单介绍一下**自动编码器AE**，自动编码器是一种**无监督学习**方法，它的原理很简单：先将高维的原始数据映射到一个低维特征空间，然后从低维特征学习重建原始的数据。一个AE模型包含两部分网络：
+
+- **Encoder：**将原始的高维数据映射到低维特征空间，这个特征维度一般比原始数据维度要小，这样就起到压缩或者降维的目的，这个低维特征也往往成为中间隐含特征（latent representation）；
+
+- **Decoder**：基于压缩后的低维特征来重建原始数据；
+
+  最简单的自编码器如下，一个三层的线性网络（无激活函数），先对输入 x 进行降维得到 z ，再重构得到 x^ ，希望 x^→x 。一个非常完美的对称结构。
+  
+  <img src="../../images/image-20240114011607906.png" alt="image-20240114011607906" style="zoom: 25%;" />
+
+AE有很多变种，比如经典的**去噪自编码器（Denoising Autoencoder，DAE）**，与原始AE不同的是，在训练过程先对输入进行一定的扰动，比如增加噪音或者随机mask掉一部分特征。相比AE，DAE的重建难度增加，这也使得encoder学习到的隐含特征更具有代表性。
+
+#### **变分自动编码器（Variational Autoencoder，VAE）**
+
+###### VAE的数学建模过程：
+
+VAE虽然名字里也带有自动编码器，但这主要是因为VAE和AE有着类似的结构，即encoder和decoder这样的架构设计。实际上，VAE和AE在建模方面存在很大的区别，从本质上讲，VAE是一种基于变分推断（Variational Inference, Variational Bayesian methods）的概率模型（Probabilistic Model），它属于生成模型（当然也是无监督模型）,生成模型的目标就是最大似然估计 (MLE)。
+
+在变分推断中，除了已知的数据（观测数据，训练数据）:
+$$
+{X}=\left\{x^{(i)}\right\}_{i=1}^{N}
+$$
+外还存在一个隐含变量，这里已知的数据集记为由N个连续变量或者离散变量x组成，而未观测的随机变量记为z，那么数据的产生包含两个过程：
+
+1. 从一个先验分布Pθ(z)中采样一个z(i)；
+
+2. 根据条件分布Pθ(x|z)，用z(i)生成x(i)。
+
+   （θ指分布函数参数）我们就期望找到一个θ*使得生成真实数据的概率最大化:
+
+$$
+\theta^{*}=\arg \max _{\theta} \prod_{i=1}^{n} p_{\theta}\left(\mathbf{x}^{(i)}\right)
+$$
+
+这里Pθ*(X(i))可以通过对z积分得到:
+$$
+\begin{array}{l}
+p_{\theta}(x)=\int p_{\theta}(x, z) d z \\
+=\int p_{\theta}(z) p_{\theta}(x \mid z) d z \\
+\quad=E_{p_{\theta}(z)} p_{\theta}(x \mid z)
+\end{array}
+\\
+$$
+而实际上要根据上述积分是不现实的，一方面先验分布Pθ(z)是未知的，而且如果分布比较复杂，对z穷举计算也是极其耗时的。为了解决这个难题，变分推断引入后验分布Pθ(z|x)来联合建模，根据[贝叶斯公式](https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Bayes%27_theorem)，后验等于：
+$$
+p_{\theta}(\mathbf{z} \mid \mathbf{x})=\frac{p_{\theta}(\mathbf{x} \mid \mathbf{z}) p_{\theta}(\mathbf{z})}{p_{\theta}(\mathbf{x})}
+$$
+<img src="../../images/image-20240114021544463.png" alt="image-20240114021544463" style="zoom:50%;" />
+
+这样的联合建模如上图所示，实线代表的是我们想要得到的生成模型Pθ(x|z)Pθ(z)，其中先验分布Pθ(z)往往是事先定义好的（比如标准正态分布），而Pθ(x|z)可以用一个网络来学习，类比AE的话，如果把z看成隐含特征，那么这个网络就可以看成一个probabilistic decoder。虚线代表的是对后验分布Pθ(z|x)的变分估计，记为QΦ(z|x)，它也可以用一个网络来学习，这个网络可以看成一个probabilistic encoder。可以看到，VAE和AE在架构设计上是类似的，只不过这里probabilistic encoder和probabilistic decoder学习的是两个分布。对于VAE来说，最终目标是得到生成模型即decoder，而encoder只是为了辅助建模，但对于AE来说，常常是为了得到encoder来进行特征提取或者压缩。
+
+这样就完成了对VAE的数学建模。
+
+###### vae的训练过程：
+
+VAE在训练过程中，会在Encoder的编码上加上一个扰动（或限制），它的训练过程如下：
+
+1. 通过深度学习网络，我们可以将输入 X 投影到某一隐空间 Latent Space的编码方式（也就是一个编码模型，称之为Encoder过程）。这样，我们可以获得所有输入 X 的隐状态编码（Representation in Latent Space）；
+2. 根据上述的隐状态编码，我们构建两个**需要学习**的层（μ，σ）。设置随机数epsilon，根据参数（μ，σ），可以随机获得一个新的隐藏数据z。重复多次，获得一个数据集（Z', X'）。*注意：这其实是一种构建扰动的方法，还可以有其他种*；
+3. 训练一个神经网络，输入输出为（Z', X'）。即将扰动数据z重新映射为原输入数据x，称之为Decoder过程。
 
 ### 潜在扩散模型（Latent Diffusion Models，LDMs）
 
@@ -117,8 +185,24 @@ https://zhuanlan.zhihu.com/p/582693939
 
 #### 下雨（不同程度的）
 
+<center class="half">
+<img src="../../images/QQ图片20240114173328.jpg" width=300/>
+<img src="../../images/QQ图片20240114173341.jpg" width=300/>
+<img src="../../images/QQ图片20240114173345.jpg" width=300/>
+<img src="../../images/QQ图片20240114173349.jpg" width=300/>
+<img src="../../images/QQ图片20240114173353.jpg" width=300/>
+</center>
 
 #### 下雪（不同程度的）
+
+<center class="half">
+<img src="../../images/QQ图片20240114173357.jpg" width=300/>
+<img src="../../images/QQ图片20240114173401.jpg" width=300/>
+<img src="../../images/QQ图片20240114173404.jpg" width=300/>
+<img src="../../images/QQ图片20240114173408.jpg" width=300/>
+<img src="../../images/QQ图片20240114173411.jpg" width=300/>
+</center>
+
 
 [Heavy snowfall - v1.0 | Stable Diffusion LoRA | Civitai](https://civitai.com/models/219932/heavy-snowfall)
 
@@ -133,7 +217,25 @@ Steps: 20, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 712934690, Size: 500x37
 ![image-20240113201648520](../../images/image-20240113201648520.png)
 
 
+#### 沙尘暴
 
+<center class="half">
+<img src="../../images/QQ图片20240114173414.jpg" width=300/>
+<img src="../../images/QQ图片20240114173417.jpg" width=300/>
+<img src="../../images/QQ图片20240114173421.jpg" width=300/>
+<img src="../../images/QQ图片20240114173424.jpg" width=300/>
+<img src="../../images/01388-4109244131-outdoors,_lora_garbage city_v1_0.6_,ruanyi042,no humans,(masterpiece_1.2),best quality,highres,extremely detailed CG,perfect lig.png" width=300/>
+</center>
+
+#### 雾/雾霾
+
+<center class="half">
+<img src="../../images/QQ图片20240114173427.jpg" width=300/>
+<img src="../../images/QQ图片20240114173431.jpg" width=300/>
+<img src="../../images/QQ图片20240114173435.jpg" width=300/>
+<img src="../../images/QQ图片20240114173438.jpg" width=300/>
+<img src="../../images/QQ图片20240114173441.jpg" width=300/>
+</center>
 
 
 ### 光线状态
@@ -142,6 +244,14 @@ Steps: 20, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 712934690, Size: 500x37
 
 
 
+
+
+### 一些在线生成网站
+
+一些我们使用后，感觉比较好用的在线图片生成网站。
+1.  一天300张免费的，类似stable difusion: https://www.liblib.art/
+2. 阿里巴巴的一天限量几百张，可设置选项有限https://tongyi.aliyun.com/wanxiang/?utm_source=ai-bot.cn
+3. 免费的不限量，设置选项相对有限https://miaohua.sensetime.com/zh-CN
 
 
 ## 数据标注——原理与方法
