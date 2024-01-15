@@ -19,7 +19,7 @@
       - [优化方法](#优化方法)
       - [参考](#参考)
     - [变分自编码器（Variational autoencoder，VAE）](#变分自编码器variational-autoencodervae)
-      - [**自动编码器（Autoencoder，AE）**](#自动编码器autoencoderae)
+      - [自动编码器（Autoencoder，AE）](#自动编码器autoencoderae)
       - [变分自动编码器（Variational Autoencoder，VAE）](#变分自动编码器variational-autoencodervae)
           - [VAE的数学建模过程：](#vae的数学建模过程)
           - [vae的训练过程：](#vae的训练过程)
@@ -119,7 +119,7 @@ https://blog.csdn.net/m0_61878383/article/details/122462196?ops_request_misc=%25
 
 ### 变分自编码器（Variational autoencoder，VAE）
 
-#### **自动编码器（Autoencoder，AE）**
+#### 自动编码器（Autoencoder，AE）
 
 再讲VAE之前，有必要先简单介绍一下**自动编码器AE**，自动编码器是一种**无监督学习**方法，它的原理很简单：先将高维的原始数据映射到一个低维特征空间，然后从低维特征学习重建原始的数据。一个AE模型包含两部分网络：
 
@@ -154,7 +154,7 @@ $$
    （θ指分布函数参数）我们就期望找到一个θ*使得生成真实数据的概率最大化:
 
 $$
-\theta^{*}=\arg \max _{\theta} \prod_{i=1}^{n} p_{\theta}\left(\mathbf{x}^{(i)}\right)
+\theta^{\*}=\arg \max _{\theta} \prod_{i=1}^{n} p_{\theta}\left(\mathbf{x}^{(i)}\right)
 $$
 
 这里Pθ*(X(i))可以通过对z积分得到:
@@ -245,9 +245,7 @@ $$
 
 
 $$
-\begin{gathered}
 L_{LDM} \coloneqq \mathbb{E}_{\varepsilon(x),t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
-\end{gathered}
 $$
 
 
