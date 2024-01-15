@@ -145,7 +145,7 @@ VAE虽然名字里也带有自动编码器，但这主要是因为VAE和AE有着
 X=\left\{ x^{(i)} \right\}_{i=1}^{N}
 $$ --> 
 
-<div align="center"><img style="background: white;" src="..\..\svg\JjnBxwT7VR.svg"></div>
+<div align="center"><img style="background: white;" src="../../svg/JjnBxwT7VR.svg"></div>
 
 
 
@@ -161,7 +161,7 @@ $$ -->
 \theta^{*}=\arg \max _{\theta} \prod_{i=1}^{n} p_{\theta}\left(\mathbf{x}^{(i)}\right)
 $$ --> 
 
-<div align="center"><img style="background: white;" src="..\..\svg\YDExwaJ2rL.svg"></div>
+<div align="center"><img style="background: white;" src="../../svg/YDExwaJ2rL.svg"></div>
 
 这里Pθ*(X(i))可以通过对z积分得到:
 $$
@@ -227,7 +227,7 @@ Latent Diffusion Models整体框架如上图所示，首先需要训练好一个
 L_{DM}=\mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
 $$ --> 
 
-<!-- <div align="center"><img style="background: white;" src="..\..\svg\ZpXgXfC8NP.svg"></div> -->
+<!-- <div align="center"><img style="background: white;" src="../../svg/ZpXgXfC8NP.svg"></div> -->
 <div align="center"><img style="background: white;" src="../../svg/ZpXgXfC8NP.svg"></div>
 
 其中 $t$从 $\{1,\cdots,T\}$ 中均匀采样获得。
@@ -243,7 +243,7 @@ $$ -->
 L_{LDM} := \mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
 $$ --> 
 
-<div align="center"><img style="background: white;" src="..\..\svg\Z88FMaBAqJ.svg"></div>
+<div align="center"><img style="background: white;" src="../../svg/Z88FMaBAqJ.svg"></div>
 
 
 #### 条件机制（Conditioning Mechanisms）
@@ -263,7 +263,7 @@ $$
 L_{LDM} := \mathbb{E}_{\varepsilon(x),t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
 $$ --> 
 
-<div align="center"><img style="background: white;" src="..\..\svg\CAWc3YDo9G.svg"></div>
+<div align="center"><img style="background: white;" src="../../svg/CAWc3YDo9G.svg"></div>
 
 
 参考：
