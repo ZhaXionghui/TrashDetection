@@ -245,7 +245,9 @@ $$
 
 
 $$
+\begin{gathered}
 L_{LDM} \coloneqq \mathbb{E}_{\varepsilon(x),t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
+\end{gathered}
 $$
 
 
