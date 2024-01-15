@@ -20,7 +20,7 @@
       - [参考](#参考)
     - [变分自编码器（Variational autoencoder，VAE）](#变分自编码器variational-autoencodervae)
       - [**自动编码器（Autoencoder，AE）**](#自动编码器autoencoderae)
-      - [**变分自动编码器（Variational Autoencoder，VAE）**](#变分自动编码器variational-autoencodervae)
+      - [变分自动编码器（Variational Autoencoder，VAE）](#变分自动编码器variational-autoencodervae)
           - [VAE的数学建模过程：](#vae的数学建模过程)
           - [vae的训练过程：](#vae的训练过程)
     - [潜在扩散模型（Latent Diffusion Models，LDMs）](#潜在扩散模型latent-diffusion-modelsldms)
@@ -133,7 +133,7 @@ https://blog.csdn.net/m0_61878383/article/details/122462196?ops_request_misc=%25
 
 AE有很多变种，比如经典的**去噪自编码器（Denoising Autoencoder，DAE）**，与原始AE不同的是，在训练过程先对输入进行一定的扰动，比如增加噪音或者随机mask掉一部分特征。相比AE，DAE的重建难度增加，这也使得encoder学习到的隐含特征更具有代表性。
 
-#### **变分自动编码器（Variational Autoencoder，VAE）**
+#### 变分自动编码器（Variational Autoencoder，VAE）
 
 ###### VAE的数学建模过程：
 
@@ -151,8 +151,11 @@ $$
 
    （θ指分布函数参数）我们就期望找到一个θ*使得生成真实数据的概率最大化:
 
+
 $$
+
 \theta^{*}=\arg \max _{\theta} \prod_{i=1}^{n} p_{\theta}\left(\mathbf{x}^{(i)}\right)
+
 $$
 
 这里Pθ*(X(i))可以通过对z积分得到:
@@ -215,20 +218,26 @@ Latent Diffusion Models整体框架如上图所示，首先需要训练好一个
 
 首先看一下普通的**扩散模型（Diffusion Models，DMs）**，它是一种概率模型。可以解释为一个时序去噪自编码器（equally weighted sequence of denoising autoencoders） $\epsilon_{\theta}(x_{t},t);t=1, \cdots ,T$，其目标是根据输入$x_{t}$去预测一个对应去噪后的变体，或者说预测噪音，其中$x_{t}$是输入 $x$ 的噪音版本。相应的目标函数可以写成如下形式：
 
+
 $$
 L_{DM}=\mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
 $$
+
+
 其中 $t$从 $\{1,\cdots,T\}$ 中均匀采样获得。
 
 在**潜在扩散模型**中，引入了预训练的感知压缩模型，它包括一个编码器 $\varepsilon$ 和一个解码器 $D$。这样就可以利用在训练时就可以利用编码器得到 $z_{t}$，从而让模型在潜在表示空间中学习，相应的目标函数可以写成如下形式：
+
 
 $$
 L_{LDM} \coloneqq \mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
 $$
 
+
 #### 条件机制（Conditioning Mechanisms）
 
 除了无条件图片生成外，我们也可以进行条件图片生成，这主要是通过拓展得到一个条件时序去噪自编码器（conditional denoising autoencoder）$\epsilon_{\theta}(z_{t},t,y)$ 来实现的，这样一来我们就可通过 $y$ 来控制图片合成的过程。具体来说，论文通过在UNet主干网络上增加cross-attention机制来实现$\epsilon_{\theta}(z_{t},t,y)$。为了能够从多个不同的模态预处理 $y$ ，论文引入了一个领域专用编码器（domain specific encoder）$\tau_{\theta}$ ，它用来将 $y$ 映射为一个中间表示 $\tau_{\theta}(y) \in \mathbb{R}^{M \times d_{\tau}}$ ，这样我们就可以很方便的引入各种形态的条件（文本、类别、layout等等）。最终模型就可以通过一个cross-attention层映射将控制信息融入到UNet的中间层，cross-attention层的实现如下：
+
 $$
 Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d}} \cdot V), with \\
 Q  = W_{Q}^{(i)} \cdot \varphi_{i}(z_{t}),K=W_{K}^{(i)} \cdot \tau_{\theta}(y)
@@ -236,6 +245,7 @@ $$
 
 
 其中 $\varphi_{i}(z_{t}) \in \mathbb{R}^{N \times d_{\epsilon}^{i}}$ 是UNet的一个中间表征。相应的目标函数可以写成如下形式：
+
 
 $$
 L_{LDM} \coloneqq \mathbb{E}_{\varepsilon(x),t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
