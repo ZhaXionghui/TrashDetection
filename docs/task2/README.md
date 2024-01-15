@@ -227,7 +227,8 @@ Latent Diffusion Models整体框架如上图所示，首先需要训练好一个
 L_{DM}=\mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
 $$ --> 
 
-<div align="center"><img style="background: white;" src="..\..\svg\ZpXgXfC8NP.svg"></div>
+<!-- <div align="center"><img style="background: white;" src="..\..\svg\ZpXgXfC8NP.svg"></div> -->
+<div align="center"><img style="background: white;" src="../../svg/ZpXgXfC8NP.svg"></div>
 
 其中 $t$从 $\{1,\cdots,T\}$ 中均匀采样获得。
 
