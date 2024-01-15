@@ -141,11 +141,12 @@ VAE虽然名字里也带有自动编码器，但这主要是因为VAE和AE有着
 
 在变分推断中，除了已知的数据（观测数据，训练数据）:
 
-$$
+<!-- $$
 X=\left\{ x^{(i)} \right\}_{i=1}^{N}
-$$
+$$ --> 
 
-![](https://latex.codecogs.com/svg.image?X=\left\{x^{(i)}\right\}_{i=1}^{N})
+<div align="center"><img style="background: white;" src="..\..\svg\JjnBxwT7VR.svg"></div>
+
 
 
 外还存在一个隐含变量，这里已知的数据集记为由N个连续变量或者离散变量x组成，而未观测的随机变量记为z，那么数据的产生包含两个过程：
@@ -156,9 +157,11 @@ $$
 
    （θ指分布函数参数）我们就期望找到一个θ*使得生成真实数据的概率最大化:
 
-$$
+<!-- $$
 \theta^{*}=\arg \max _{\theta} \prod_{i=1}^{n} p_{\theta}\left(\mathbf{x}^{(i)}\right)
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="..\..\svg\YDExwaJ2rL.svg"></div>
 
 这里Pθ*(X(i))可以通过对z积分得到:
 $$
@@ -220,18 +223,26 @@ Latent Diffusion Models整体框架如上图所示，首先需要训练好一个
 
 首先看一下普通的**扩散模型（Diffusion Models，DMs）**，它是一种概率模型。可以解释为一个时序去噪自编码器（equally weighted sequence of denoising autoencoders） $\epsilon_{\theta}(x_{t},t);t=1, \cdots ,T$，其目标是根据输入$x_{t}$去预测一个对应去噪后的变体，或者说预测噪音，其中$x_{t}$是输入 $x$ 的噪音版本。相应的目标函数可以写成如下形式：
 
-$$
+<!-- $$
 L_{DM}=\mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="..\..\svg\ZpXgXfC8NP.svg"></div>
 
 其中 $t$从 $\{1,\cdots,T\}$ 中均匀采样获得。
 
 在**潜在扩散模型**中，引入了预训练的感知压缩模型，它包括一个编码器 $\varepsilon$ 和一个解码器 $D$。这样就可以利用在训练时就可以利用编码器得到 $z_{t}$，从而让模型在潜在表示空间中学习，相应的目标函数可以写成如下形式：
 
 
-$$
+<!-- $$
 L_{LDM} \coloneqq \mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
-$$
+$$ -->
+
+<!-- $$
+L_{LDM} := \mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
+$$ --> 
+
+<div align="center"><img style="background: white;" src="..\..\svg\Z88FMaBAqJ.svg"></div>
 
 
 #### 条件机制（Conditioning Mechanisms）
@@ -247,9 +258,11 @@ $$
 其中 $\varphi_{i}(z_{t}) \in \mathbb{R}^{N \times d_{\epsilon}^{i}}$ 是UNet的一个中间表征。相应的目标函数可以写成如下形式：
 
 
-$$
-L_{LDM} \coloneqq \mathbb{E}_{\varepsilon(x),t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
-$$
+<!-- $$
+L_{LDM} := \mathbb{E}_{\varepsilon(x),t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
+$$ --> 
+
+<div align="center"><img style="background: white;" src="..\..\svg\CAWc3YDo9G.svg"></div>
 
 
 参考：
