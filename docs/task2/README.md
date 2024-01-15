@@ -151,10 +151,10 @@ $$
 
 2. 根据条件分布Pθ(x|z)，用z(i)生成x(i)。
 
-   （θ指分布函数参数）我们就期望找到一个θ*使得生成真实数据的概率最大化:
+   （θ指分布函数参数）我们就期望找到一个θ**使得生成真实数据的概率最大化:
 
 $$
-\theta^{\*}=\arg \max _{\theta} \prod_{i=1}^{n} p_{\theta}\left(\mathbf{x}^{(i)}\right)
+\theta^{*}=\arg \max _{\theta} \prod_{i=1}^{n} p_{\theta}\left(\mathbf{x}^{(i)}\right)
 $$
 
 这里Pθ*(X(i))可以通过对z积分得到:
