@@ -472,6 +472,15 @@ Steps: 20, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 712934690, Size: 500x37
 
 #### 较暗、傍晚、路灯（或其它灯光）等
 
+<div>
+<center class="half">
+<img src="../../images/light1.jpg" width=300/>
+<img src="../../images/light2.jpg" width=300/>
+<img src="../../images/light3.jpg" width=300/>
+<img src="../../images/light4.jpg" width=300/>
+</center>
+</div>
+
 https://civitai.com/models/38784?modelVersionId=67566
 https://civitai.com/models/4201/realistic-vision-v60-b1
 https://civitai.com/models/128607/nightvision-xl-photorealistic-or-portrait-or-photography-or-hyperreal-or-architecture-or-interior-design-no-refiner-needed
@@ -487,6 +496,9 @@ Steps: 20,Sampler: DPM++ 3M Karras，CFG scale: 7, Seed: -1,Si
 ze: 500x375，Model: realisticVisionV60B1_v60B1VAE, VAE: vae-ft-mse-840000-ema-pruned.safetensors,
 Clip skip: 2
 重绘幅度:0.6
+
+
+
 
 
 
