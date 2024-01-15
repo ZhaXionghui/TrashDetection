@@ -56,7 +56,7 @@
 
 # 实验报告2- 基于生成模型的数据增强
 
-> 本次的数据增强主要采用Stable Diffusion，基于Stable Diffusion我们利用其文生图，图生图的能力生成了不同程度的下雪，下雨，沙尘暴，雾霾等多种不同天气的数据。于此同时，我们也在夜晚条件下，通过ControlNet获得不同光照情况下生成的数据，生成超过万张新的数据。
+> 本次的数据增强主要采用Stable Diffusion，基于Stable Diffusion我们利用其文生图，图生图的能力生成了不同程度的下雪，下雨，沙尘暴，雾霾等多种不同天气的数据。于此同时，我们也在夜晚条件下，通过ControlNet获得不同光照情况下生成的数据。为了获得更加逼真的正在下雨效果我们也尝试了一些其他的方法，这里我们采用了基于雨线模型的数据增强以获得更为逼真的正在下雨时的图片数据。总共生成数万张新的数据。
 > 
 > 我们在给出了相应的生成参数的同时也对与Stable Diffusion相关的生成对抗网络（Generative Adversarial Network ，GAN），变分自编码器（Variational autoencoder，VAE），潜在扩散模型（Latent Diffusion Models，LDMs）的一些基础内容做了讲解。
 >
@@ -65,3 +65,73 @@
 具体参数及技术细节请参照
 
 `传送门`：[实验报告2- 基于生成模型的数据增强](docs/task2/README.md)
+
+以下是部分生成的图片展示
+
+### 天气状态
+
+#### 下雨（不同程度的）
+
+<center class="half">
+<img src="./images/QQ图片20240114173328.jpg" width=300/>
+<img src="./images/QQ图片20240114173341.jpg" width=300/>
+<img src="./images/QQ图片20240114173345.jpg" width=300/>
+<img src="./images/QQ图片20240114173349.jpg" width=300/>
+<img src="./images/QQ图片20240114173353.jpg" width=300/>
+</center>
+<img src="./images/3.png" alt="3" style="zoom:60%;" />
+
+<img src="./images/4.png" alt="4" style="zoom:60%;" />
+
+
+#### 下雪（不同程度的）
+
+<center class="half">
+<img src="./images/QQ图片20240114173357.jpg" width=300/>
+<img src="./images/QQ图片20240114173401.jpg" width=300/>
+<img src="./images/QQ图片20240114173404.jpg" width=300/>
+<img src="./images/QQ图片20240114173408.jpg" width=300/>
+<img src="./images/QQ图片20240114173411.jpg" width=300/>
+</center>
+
+
+[Heavy snowfall - v1.0 | Stable Diffusion LoRA | Civitai](https://civitai.com/models/219932/heavy-snowfall)
+
+```yaml
+snowy,winter,(snowfall in background:1.2),(heavyfall:1.15),snow,very snowy,photorealistic,<lora:snowfall:0.8>,
+Negative prompt: Unrealistic,
+Steps: 20, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 712934690, Size: 500x375, Model hash: fe7578cb5e, Model: realisticVisionV60B1_v60B1VAE, VAE hash: 735e4c3a44, VAE: vae-ft-mse-840000-ema-pruned.safetensors, Denoising strength: 0.34, Clip skip: 2, Lora hashes: "snowfall: f8324b7af7d9", Version: v1.6.0-2-g4afaaf8a
+```
+
+重绘幅度:0.34,0.35
+
+![image-20240113201648520](./images/image-20240113201648520.png)
+
+
+#### 沙尘暴
+
+<center class="half">
+<img src="./images/QQ图片20240114173414.jpg" width=300/>
+<img src="./images/QQ图片20240114173417.jpg" width=300/>
+<img src="./images/QQ图片20240114173421.jpg" width=300/>
+<img src="./images/QQ图片20240114173424.jpg" width=300/>
+<img src="./images/01388-4109244131-outdoors,_lora_garbage city_v1_0.6_,ruanyi042,no humans,(masterpiece_1.2),best quality,highres,extremely detailed CG,perfect lig.png" width=300/>
+</center>
+
+#### 雾/雾霾
+
+<center class="half">
+<img src="./images/QQ图片20240114173427.jpg" width=300/>
+<img src="./images/QQ图片20240114173431.jpg" width=300/>
+<img src="./images/QQ图片20240114173435.jpg" width=300/>
+<img src="./images/QQ图片20240114173438.jpg" width=300/>
+<img src="./images/QQ图片20240114173441.jpg" width=300/>
+</center>
+
+
+### 光线状态
+
+#### 较暗、傍晚、路灯（或其它灯光）等
+
+
+![image4](./images/image4.png)
