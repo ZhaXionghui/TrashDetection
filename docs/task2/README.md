@@ -372,9 +372,10 @@ $$
 
 ### 结果展示
 
-<img src="../../images/3.png" alt="3" style="zoom:60%;" />
-
-<img src="../../images/4.png" alt="4" style="zoom:60%;" />
+<center class="half">
+<img src="../../images/3.png" alt="3" width=300 />
+<img src="../../images/4.png" alt="4" width=300 />
+</center>
 
 ## 数据增强
 
@@ -389,9 +390,10 @@ $$
 <img src="../../images/QQ图片20240114173349.jpg" width=300/>
 <img src="../../images/QQ图片20240114173353.jpg" width=300/>
 </center>
-<img src="../../images/3.png" alt="3" style="zoom:60%;" />
-
-<img src="../../images/4.png" alt="4" style="zoom:60%;" />
+<center class="half">
+<img src="../../images/3.png" alt="3" width=300 />
+<img src="../../images/4.png" alt="4" width=300 />
+</center>
 
 
 #### 下雪（不同程度的）

@@ -79,10 +79,10 @@
 <img src="./images/QQ图片20240114173349.jpg" width=300/>
 <img src="./images/QQ图片20240114173353.jpg" width=300/>
 </center>
-<img src="./images/3.png" alt="3" style="zoom:60%;" />
-
-<img src="./images/4.png" alt="4" style="zoom:60%;" />
-
+<center class="half">
+<img src="./images/3.png" alt="3" width=300 />
+<img src="./images/4.png" alt="4" width=300 />
+</center>
 
 #### 下雪（不同程度的）
 
@@ -94,16 +94,6 @@
 <img src="./images/QQ图片20240114173411.jpg" width=300/>
 </center>
 
-
-[Heavy snowfall - v1.0 | Stable Diffusion LoRA | Civitai](https://civitai.com/models/219932/heavy-snowfall)
-
-```yaml
-snowy,winter,(snowfall in background:1.2),(heavyfall:1.15),snow,very snowy,photorealistic,<lora:snowfall:0.8>,
-Negative prompt: Unrealistic,
-Steps: 20, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 712934690, Size: 500x375, Model hash: fe7578cb5e, Model: realisticVisionV60B1_v60B1VAE, VAE hash: 735e4c3a44, VAE: vae-ft-mse-840000-ema-pruned.safetensors, Denoising strength: 0.34, Clip skip: 2, Lora hashes: "snowfall: f8324b7af7d9", Version: v1.6.0-2-g4afaaf8a
-```
-
-重绘幅度:0.34,0.35
 
 ![image-20240113201648520](./images/image-20240113201648520.png)
 
