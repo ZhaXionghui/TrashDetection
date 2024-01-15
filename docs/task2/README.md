@@ -1,6 +1,8 @@
 # 实验报告2- 基于生成模型的数据增强
 
-> 本次的数据生成主要采用Stable Diffusion，基于Stable Diffusion我们利用其文生图，图生图的能力生成了下雪，下雨，沙尘暴，雾霾等多种不同天气的数据，于此同时我们也在夜晚条件下，通过Controlnet获得不同光照情况下生成的数据，生成超万张新的数据。我们给出了相应的生成参数同时也对与Stable Diffusion相关的GAN，VAE，潜在扩散模型（Latent Diffusion Models，LDMs）一些基础内容做了讲解。
+> 本次的数据增强主要采用Stable Diffusion，基于Stable Diffusion我们利用其文生图，图生图的能力生成了不同程度的下雪，下雨，沙尘暴，雾霾等多种不同天气的数据。于此同时，我们也在夜晚条件下，通过ControlNet获得不同光照情况下生成的数据，生成超过万张新的数据。
+> 
+> 我们在给出了相应的生成参数的同时也对与Stable Diffusion相关的生成对抗网络（Generative Adversarial Network ，GAN），变分自编码器（Variational autoencoder，VAE），潜在扩散模型（Latent Diffusion Models，LDMs）的一些基础内容做了讲解。
 >
 > 我们还对数据标注的原理与方法进行了较为详细的讲解，并进行了完整操作流程的演示。
 
@@ -8,7 +10,14 @@
 
 - [实验报告2- 基于生成模型的数据增强](#实验报告2--基于生成模型的数据增强)
   - [生成式深度学习模型](#生成式深度学习模型)
-    - [（Generative Adversarial Network	，GAN）](#generative-adversarial-networkgan)
+    - [生成对抗网络（Generative Adversarial Network	，GAN）](#生成对抗网络generative-adversarial-networkgan)
+      - [GAN的介绍](#gan的介绍)
+      - [GAN的训练过程](#gan的训练过程)
+      - [生成器Generator](#生成器generator)
+      - [判别器Discriminator](#判别器discriminator)
+      - [训练方式](#训练方式)
+      - [优化方法](#优化方法)
+      - [参考](#参考)
     - [变分自编码器（Variational autoencoder，VAE）](#变分自编码器variational-autoencodervae)
       - [**自动编码器（Autoencoder，AE）**](#自动编码器autoencoderae)
       - [**变分自动编码器（Variational Autoencoder，VAE）**](#变分自动编码器variational-autoencodervae)
@@ -42,8 +51,58 @@
 
 
 
-### （Generative Adversarial Network	，GAN）
+### 生成对抗网络（Generative Adversarial Network	，GAN）
 
+#### GAN的介绍
+
+GAN的全称是Generative adversarial network，中文翻译过来就是生成对抗网络。生成对抗网络其实是两个网络的组合：生成网络（Generator）负责生成模拟数据；判别网络(Discriminator）负责判断输入的数据是真实的还是生成的。生成网络要不断优化自己生成的数据让判别网络判断不出来，判别网络也要优化自己让自己判断得更准确。二者关系形成对抗，因此叫对抗网络。
+
+#### GAN的训练过程
+
+1.随机生成一组潜在向量z，并使用生成器生成一组假数据。
+2.将一组真实数据和一组假数据作为输入，训练判别器。
+3.使用生成器生成一组新的假数据，并训练判别器。
+4.重复步骤2和3，直到生成器生成的假数据与真实数据的分布相似。
+
+![image1](../../images/image1.png)
+
+#### 生成器Generator
+
+生成器G是一个生成图片的网络，可以采用多层感知机、卷积网络、自编码器等。
+
+![image2](../../images/image2.png)
+
+#### 判别器Discriminator
+
+判别器D的输入为真实图像和生成器生成的图像，其目的是将生成的图像从真实图像中尽可能的分辨出来。
+
+![image3](../../images/image3.png)
+
+#### 训练方式
+
+训练时先训练鉴别器D 将真实图片打上真标签1和生成器G生成的假图片打上假标签0，一同组成batch送入判别器D，对判别器进行训练。计算loss时使判别器对真实图像输入的判别趋近于真，对生成的假图片的判别趋近于假。此过程中只更新判别器的参数，不更新生成器的参数。
+
+然后再训练生成器G 将高斯分布的噪声z送入生成器G，将生成的假图片打上真标签1送入判别器D。计算loss时使判别器对生成的假图片的判别趋近于真。此过程中只更新生成器的参数，不更新判别器的参数。
+
+#### 优化方法
+
+训练GAN的时候，可以采取以下训练技巧：
+1）生成器最后一层的激活函数用tanh()，输出归一化至[-1, 1]；
+2）真实图像也归一化到[-1,1]之间；
+3）学习率不要设置太大，初始1e-4可以参考，另外可以随着训练进行不断缩小学习率；
+4）优化器尽量选择Adam，因为SGD解决的是一个寻找最小值的问题，GAN是一个博弈问题，使用SGD容易震荡；
+5）避免使用ReLU和MaxPool，减少稀疏梯度的可能性，可以使用Leak Re LU激活函数，下采样可以用Average Pooling或者Convolution + stride替代。上采样可以用PixelShuffle, ConvTranspose2d + stride；
+6）加噪声：在真实图像和生成图像中添加噪声，增加鉴别器训练难度，有利于提升稳定性；
+7）如果有标签数据，尽量使用标签信息来训练；
+8）标签平滑：如果真实图像的标签设置为1，我们将它更改为一个较低的值，比如0.9，避免鉴别器对其分类过于自信 。
+
+#### 参考
+
+https://blog.csdn.net/sinat_39620217/article/details/130982812?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-130982812-blog-108818102.235^v40^pc_relevant_rights_sort&spm=1001.2101.3001.4242.1&utm_relevant_index=3
+
+https://blog.csdn.net/qq_41771998/article/details/129954096
+
+https://blog.csdn.net/m0_61878383/article/details/122462196?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170521924516800197027257%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=170521924516800197027257&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-122462196-null-null.142^v99^pc_search_result_base4&utm_term=GAN&spm=1018.2226.3001.4187
 
 
 ### 变分自编码器（Variational autoencoder，VAE）
@@ -242,6 +301,21 @@ Steps: 20, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 712934690, Size: 500x37
 
 #### 较暗、傍晚、路灯（或其它灯光）等
 
+https://civitai.com/models/38784?modelVersionId=67566
+https://civitai.com/models/4201/realistic-vision-v60-b1
+https://civitai.com/models/128607/nightvision-xl-photorealistic-or-portrait-or-photography-or-hyperreal-or-architecture-or-interior-design-no-refiner-needed
+
+```yaml
+Realism,(dark:1.2),(night:1.5),trash can,trash bag,trash,photo,real,
+Negative prompt:comic,pixel art,((dyeing)),((oil painting)),((impasto)),oil_painting,highres,
+Steps: 20,Sampler: DPM++ 3M Karras，CFG scale: 7, Seed: -1,Si
+```
+
+![image4](../../images/image4.png)
+
+ze: 500x375，Model: realisticVisionV60B1_v60B1VAE, VAE: vae-ft-mse-840000-ema-pruned.safetensors,
+Clip skip: 2
+重绘幅度:0.6
 
 
 

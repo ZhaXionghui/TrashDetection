@@ -56,7 +56,9 @@
 
 # 实验报告2- 基于生成模型的数据增强
 
-> 本次的数据生成主要采用Stable Diffusion，基于Stable Diffusion我们利用其文生图，图生图的能力生成了下雪，下雨，沙尘暴，雾霾等多种不同天气的数据，于此同时我们也在夜晚条件下，通过Controlnet获得不同光照情况下生成的数据，生成超万张新的数据。我们给出了相应的生成参数同时也对与Stable Diffusion相关的GAN，VAE，潜在扩散模型（Latent Diffusion Models，LDMs）一些基础内容做了讲解。
+> 本次的数据增强主要采用Stable Diffusion，基于Stable Diffusion我们利用其文生图，图生图的能力生成了不同程度的下雪，下雨，沙尘暴，雾霾等多种不同天气的数据。于此同时，我们也在夜晚条件下，通过ControlNet获得不同光照情况下生成的数据，生成超过万张新的数据。
+> 
+> 我们在给出了相应的生成参数的同时也对与Stable Diffusion相关的生成对抗网络（Generative Adversarial Network ，GAN），变分自编码器（Variational autoencoder，VAE），潜在扩散模型（Latent Diffusion Models，LDMs）的一些基础内容做了讲解。
 >
 > 我们还对数据标注的原理与方法进行了较为详细的讲解，并进行了完整操作流程的演示。
 
