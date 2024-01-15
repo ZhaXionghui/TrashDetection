@@ -142,8 +142,11 @@ VAE虽然名字里也带有自动编码器，但这主要是因为VAE和AE有着
 在变分推断中，除了已知的数据（观测数据，训练数据）:
 
 $$
-X=\left\{\begin{matrix}x^{(i)}\end{matrix}\right\}_{i=1}^{N}
+X=\left\{ x^{(i)} \right\}_{i=1}^{N}
 $$
+
+![](https://latex.codecogs.com/svg.image?X=\left\{x^{(i)}\right\}_{i=1}^{N})
+
 
 外还存在一个隐含变量，这里已知的数据集记为由N个连续变量或者离散变量x组成，而未观测的随机变量记为z，那么数据的产生包含两个过程：
 
