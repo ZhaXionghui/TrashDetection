@@ -164,18 +164,28 @@ $$ -->
 <div align="center"><img style="background: white;" src="../../svg/YDExwaJ2rL.svg"></div>
 
 这里Pθ*(X(i))可以通过对z积分得到:
-$$
+
+
+<!-- $$
 \begin{array}{l}
 p_{\theta}(x)=\int p_{\theta}(x, z) d z \\
 =\int p_{\theta}(z) p_{\theta}(x \mid z) d z \\
 \quad=E_{p_{\theta}(z)} p_{\theta}(x \mid z)
 \end{array}
 \\
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="..\..\svg\m8NvqLwBnN.svg"></div>
+
+
 而实际上要根据上述积分是不现实的，一方面先验分布Pθ(z)是未知的，而且如果分布比较复杂，对z穷举计算也是极其耗时的。为了解决这个难题，变分推断引入后验分布Pθ(z|x)来联合建模，根据[贝叶斯公式](https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Bayes%27_theorem)，后验等于：
-$$
+
+<!-- $$
 p_{\theta}(\mathbf{z} \mid \mathbf{x})=\frac{p_{\theta}(\mathbf{x} \mid \mathbf{z}) p_{\theta}(\mathbf{z})}{p_{\theta}(\mathbf{x})}
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="..\..\svg\qo8QqS5UIm.svg"></div>
+
 <img src="../../images/image-20240114021544463.png" alt="image-20240114021544463" style="zoom:50%;" />
 
 这样的联合建模如上图所示，实线代表的是我们想要得到的生成模型Pθ(x|z)Pθ(z)，其中先验分布Pθ(z)往往是事先定义好的（比如标准正态分布），而Pθ(x|z)可以用一个网络来学习，类比AE的话，如果把z看成隐含特征，那么这个网络就可以看成一个probabilistic decoder。虚线代表的是对后验分布Pθ(z|x)的变分估计，记为QΦ(z|x)，它也可以用一个网络来学习，这个网络可以看成一个probabilistic encoder。可以看到，VAE和AE在架构设计上是类似的，只不过这里probabilistic encoder和probabilistic decoder学习的是两个分布。对于VAE来说，最终目标是得到生成模型即decoder，而encoder只是为了辅助建模，但对于AE来说，常常是为了得到encoder来进行特征提取或者压缩。
@@ -205,7 +215,7 @@ VAE在训练过程中，会在Encoder的编码上加上一个扰动（或限制�
 ![frame](../../images/article-Figure3-1-1024x508.png)
 
 
-Latent Diffusion Models整体框架如上图所示，首先需要训练好一个自编码模型（AutoEncoder，包括一个**编码器**$\varepsilon$和一个**解码器** $D$）,这个编码模型将压缩学习阶段与生成学习阶段明确分开以降低计算复杂度。这样一来，我们就可以利用编码模型对图片进行压缩，然后在潜在表示空间上做**扩散操作（Diffusion Process）**，最后我们再用解码器恢复到原始像素空间，论文将这种将高维特征压缩到低维，然后在低维空间上进行操作的方法称之为**感知压缩（Perceptual Compression）**。
+Latent Diffusion Models整体框架如上图所示，首先需要训练好一个自编码模型（AutoEncoder，包括一个**编码器** <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\GhSjrNQ4In.svg"> 和一个**解码器** <!-- $D$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\Ja9r2PIFkG.svg"> ）,这个编码模型将压缩学习阶段与生成学习阶段明确分开以降低计算复杂度。这样一来，我们就可以利用编码模型对图片进行压缩，然后在潜在表示空间上做**扩散操作（Diffusion Process）**，最后我们再用解码器恢复到原始像素空间，论文将这种将高维特征压缩到低维，然后在低维空间上进行操作的方法称之为**感知压缩（Perceptual Compression）**。
 
 在潜在表示空间上做**扩散操作（Diffusion Process）**其主要过程和标准的扩散模型没有太大的区别，所用到的扩散模型的具体实现为 time-conditional UNet。但是有一个重要的地方是论文为diffusion操作引入了**条件机制（Conditioning Mechanisms）**，通过cross-attention的方式来实现多模态训练，使得条件图片生成任务也可以实现。
 
@@ -217,11 +227,11 @@ Latent Diffusion Models整体框架如上图所示，首先需要训练好一个
 
 由此，基于感知压缩的扩散模型的训练本质上是一个**两阶段训练的过程**，第一阶段需要训练一个自编码器，第二阶段才需要训练扩散模型本身。在第一阶段训练自编码器时，为了避免潜在表示空间出现高度的异化，作者尝试了两种正则化方法，一种是KL-reg，另一种是VQ-reg，因此在官方发布的一阶段预训练模型中，会看到KL和VQ两种实现。在Stable Diffusion中主要采用AutoencoderKL这种实现。
 
-具体来说，给定图像$x \in \mathbb{R}^{H \times W \times 3}$ ，我们可以先利用一个编码器 $\varepsilon$ 来将图像编码到潜在表示空间$z=\varepsilon(x)$ ，其中 $z \in \mathbb{R}^{h \times w \times c}$，然后再用解码器从潜在表示空间重建图片$\tilde{x} = D(z) = D(\varepsilon(x))$ 。在感知压缩压缩的过程中，下采样系数的大小为 $f = \frac{H}{h}=\frac{W}{w}$， $f=2^{m},m \in N$ 。
+具体来说，给定图像<!-- $x \in \mathbb{R}^{H \times W \times 3}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\EPlvrPkdIF.svg"> ，我们可以先利用一个编码器 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\GhSjrNQ4In.svg"> 来将图像编码到潜在表示空间<!-- $z=\varepsilon(x)$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\5xUpDO1HKj.svg"> ，其中 <!-- $z \in \mathbb{R}^{h \times w \times c}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\RXJKzXIqTc.svg">，然后再用解码器从潜在表示空间重建图片<!-- $\tilde{x} = D(z) = D(\varepsilon(x))$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\yppgWi5aDa.svg"> 。在感知压缩压缩的过程中，下采样系数的大小为 <!-- $f = \frac{H}{h}=\frac{W}{w}$， $f=2^{m},m \in N$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\0HTbu4sObX.svg"> 。
 
 #### 潜在扩散模型（Latent Diffusion Models）
 
-首先看一下普通的**扩散模型（Diffusion Models，DMs）**，它是一种概率模型。可以解释为一个时序去噪自编码器（equally weighted sequence of denoising autoencoders） $\epsilon_{\theta}(x_{t},t);t=1, \cdots ,T$，其目标是根据输入$x_{t}$去预测一个对应去噪后的变体，或者说预测噪音，其中$x_{t}$是输入 $x$ 的噪音版本。相应的目标函数可以写成如下形式：
+首先看一下普通的**扩散模型（Diffusion Models，DMs）**，它是一种概率模型。可以解释为一个时序去噪自编码器（equally weighted sequence of denoising autoencoders） <!-- $\epsilon_{\theta}(x_{t},t);t=1, \cdots ,T$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\ujR0F3CtAJ.svg">，其目标是根据输入$x_{t}$去预测一个对应去噪后的变体，或者说预测噪音，其中<!-- $x_{t}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\Hm7qfUEdPF.svg">是输入 <!-- $x$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\8Fga0bQ7RB.svg"> 的噪音版本。相应的目标函数可以写成如下形式：
 
 <!-- $$
 L_{DM}=\mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
@@ -230,9 +240,9 @@ $$ -->
 <!-- <div align="center"><img style="background: white;" src="../../svg/ZpXgXfC8NP.svg"></div> -->
 <div align="center"><img style="background: white;" src="../../svg/ZpXgXfC8NP.svg"></div>
 
-其中 $t$从 $\{1,\cdots,T\}$ 中均匀采样获得。
+其中 <!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\hfO5qUMr7M.svg">从 <!-- $\{1,\cdots,T\}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\DxEWcJCXJP.svg"> 中均匀采样获得。
 
-在**潜在扩散模型**中，引入了预训练的感知压缩模型，它包括一个编码器 $\varepsilon$ 和一个解码器 $D$。这样就可以利用在训练时就可以利用编码器得到 $z_{t}$，从而让模型在潜在表示空间中学习，相应的目标函数可以写成如下形式：
+在**潜在扩散模型**中，引入了预训练的感知压缩模型，它包括一个编码器 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\GhSjrNQ4In.svg"> 和一个解码器 $D$。这样就可以利用在训练时就可以利用编码器得到 <!-- $z_{t}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\gwDcDe1i17.svg">，从而让模型在潜在表示空间中学习，相应的目标函数可以写成如下形式：
 
 
 <!-- $$
@@ -248,15 +258,17 @@ $$ -->
 
 #### 条件机制（Conditioning Mechanisms）
 
-除了无条件图片生成外，我们也可以进行条件图片生成，这主要是通过拓展得到一个条件时序去噪自编码器（conditional denoising autoencoder）$\epsilon_{\theta}(z_{t},t,y)$ 来实现的，这样一来我们就可通过 $y$ 来控制图片合成的过程。具体来说，论文通过在UNet主干网络上增加cross-attention机制来实现$\epsilon_{\theta}(z_{t},t,y)$。为了能够从多个不同的模态预处理 $y$ ，论文引入了一个领域专用编码器（domain specific encoder）$\tau_{\theta}$ ，它用来将 $y$ 映射为一个中间表示 $\tau_{\theta}(y) \in \mathbb{R}^{M \times d_{\tau}}$ ，这样我们就可以很方便的引入各种形态的条件（文本、类别、layout等等）。最终模型就可以通过一个cross-attention层映射将控制信息融入到UNet的中间层，cross-attention层的实现如下：
+除了无条件图片生成外，我们也可以进行条件图片生成，这主要是通过拓展得到一个条件时序去噪自编码器（conditional denoising autoencoder）<!-- $\epsilon_{\theta}(z_{t},t,y)$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\UvqMXGmrDe.svg"> 来实现的，这样一来我们就可通过 <!-- $y$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\8BtHBnklRt.svg"> 来控制图片合成的过程。具体来说，论文通过在UNet主干网络上增加cross-attention机制来实现<!-- $\epsilon_{\theta}(z_{t},t,y)$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\XgjaiZL6of.svg">。为了能够从多个不同的模态预处理 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\GhSjrNQ4In.svg"> ，论文引入了一个领域专用编码器（domain specific encoder）$\tau_{\theta}$ ，它用来将 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\GhSjrNQ4In.svg"> 映射为一个中间表示 <!-- $\tau_{\theta}(y) \in \mathbb{R}^{M \times d_{\tau}}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\ccBTPkK59m.svg"> ，这样我们就可以很方便的引入各种形态的条件（文本、类别、layout等等）。最终模型就可以通过一个cross-attention层映射将控制信息融入到UNet的中间层，cross-attention层的实现如下：
 
-$$
+<!-- $$
 Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d}} \cdot V), with \\
 Q  = W_{Q}^{(i)} \cdot \varphi_{i}(z_{t}),K=W_{K}^{(i)} \cdot \tau_{\theta}(y)
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="..\..\svg\DJlCos4UQF.svg"></div>
 
 
-其中 $\varphi_{i}(z_{t}) \in \mathbb{R}^{N \times d_{\epsilon}^{i}}$ 是UNet的一个中间表征。相应的目标函数可以写成如下形式：
+其中 <!-- $\varphi_{i}(z_{t}) \in \mathbb{R}^{N \times d_{\epsilon}^{i}}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\mcedvvxTdr.svg"> 是UNet的一个中间表征。相应的目标函数可以写成如下形式：
 
 
 <!-- $$
@@ -324,13 +336,15 @@ https://zhuanlan.zhihu.com/p/582693939
 
 用公式来表示雨滴模型，即
 
-$$
+<!-- $$
 \begin{gathered}
 r(t,\theta,\varphi)= r_{0}[1+A_{2,0}\sin\left(\omega_{2}t\right)P_{2,0}\left(\theta\right)+ \left.A_{3,1}\sin\left(\omega_{3}t\right)\cos\left(\varphi\right)P_{3,1}\left(\theta\right)\right] 
 \end{gathered}
-$$
+$$ --> 
 
-式中，r 为雨滴表面点离雨滴中心的距离，$\theta$ 和 $\varphi$ 分别为该点关于$z$ 轴和$x$ 轴的倾斜角和方位角，$r_{0}$ 为雨滴半径，$A_{2,0}$为轴对称模式幅值，$A_{3,1}$为非轴对称模式幅值，$P_{2,0}\left(\theta\right)$ 和$P_{3,1}\left(\theta\right)$为 Legendre 多项式。 
+<div align="center"><img style="background: white;" src="..\..\svg\7dC1zYEXkm.svg"></div>
+
+式中，r 为雨滴表面点离雨滴中心的距离，<!-- $\theta$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\4bZlOUWpIj.svg"> 和 <!-- $\varphi$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\1XqjLdeASy.svg"> 分别为该点关于$z$ 轴和$x$ 轴的倾斜角和方位角，<!-- $r_{0}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\hhRIo9FyLZ.svg"> 为雨滴半径，<!-- $A_{2,0}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\jmEi6qFmM2.svg">为轴对称模式幅值，<!-- $A_{3,1}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\vdz0AozFzJ.svg">为非轴对称模式幅值，<!-- $P_{2,0}\left(\theta\right)$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\P9CuK1ggBu.svg"> 和<!-- $P_{3,1}\left(\theta\right)$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\6XoVj9jZlu.svg">为 Legendre 多项式。 
 
 雨滴模型和绘制所用坐标系如下图所示：
 
@@ -340,11 +354,13 @@ $$
 
 在天然降雨中，雨滴降落至某一高度时所受的空气阻力与其重力相等，此后雨滴会以某一速度匀速降落到地面，这个速度叫做雨滴的终点速度，简称雨滴终速，它取决于雨滴半径。
 
-如下图所示，根据数据，用三次多项式拟合雨滴半径与天然降雨中雨滴终速 $v$ m/s 的关系。拟合公式为
+如下图所示，根据数据，用三次多项式拟合雨滴半径与天然降雨中雨滴终速 <!-- $v$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\cHyIZE7zur.svg"> m/s 的关系。拟合公式为
 
-$$
+<!-- $$
 \begin{array}{rcl}v=0.34785r_0^3-3.17414r_0^2+9.49157r_0-0.10374\end{array}
-$$
+$$ --> 
+
+<div align="center"><img style="background: white;" src="..\..\svg\0GQC770mKi.svg"></div>
 
 <img src="../../images/2.png" alt="2" style="zoom:95%;" />
 
@@ -352,10 +368,10 @@ $$
 
 ##### 雨滴生成
 
-使用粒子系统来产生雨滴的动画。粒子系统中雨滴的参数包括半径$r_{0}$，空间位置$(x_0,y_0,z_0)\:$， 旋转角$\phi_\mathrm{rot}$，速度$v$，时间$t$。
+使用粒子系统来产生雨滴的动画。粒子系统中雨滴的参数包括半径<!-- $r_{0}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\N9MSrt1w6f.svg">，空间位置<!-- $(x_0,y_0,z_0)\:$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\UD2wp8jW7K.svg">， 旋转角<!-- $\phi_\mathrm{rot}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\1iV3kcnxvS.svg">，速度<!-- $v$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\cHyIZE7zur.svg">，时间<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\hfO5qUMr7M.svg">。
 
-1. 给定雨滴半径 $r_{0}$,可由雨滴大小计算雨滴速度 $v$,或者设置想要的雨滴速度；
-2.  根据雨滴密度和场景空间范围生成空间位置$(x_0,y_0,z_0)$,旋转角$\phi_\mathrm{rot}$与时间$t$ 随机分布的雨滴；
+1. 给定雨滴半径 $r_{0}$,可由雨滴大小计算雨滴速度 <!-- $v$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\cHyIZE7zur.svg">,或者设置想要的雨滴速度；
+2.  根据雨滴密度和场景空间范围生成空间位置<!-- $(x_0,y_0,z_0)$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\vreXpUawSM.svg">,旋转角<!-- $\phi_\mathrm{rot}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\vs3kEezPdO.svg">与时间<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\hfO5qUMr7M.svg"> 随机分布的雨滴；
 3. 根据雨滴速度计算下一个时间步雨滴新的位置，如果超出场景空间范围则雨滴消失;
 4. 判断时间步是否超出设定值，是则结束，否则转步骤 2 。
 
@@ -365,16 +381,22 @@ $$
 
 考虑到曝光时间$T$,在像素位置$(x,y)$ 处的像素值可表示为
 
-$$
+<!-- $$
 I_{xy}\:=\:\int_{\Omega}\:\int_{T}r\:(\:\omega\:,t)\:L\:(\omega\:,t)\:\mathrm{d}t\mathrm{d}\omega
-$$
-式中，$\omega$ 为像素对应的立体角，$\iota$ 为时间，$r(\omega,t)$ 为重构滤波器，$L(\omega,t)$ 为入射辐射度。
-根据 Cook 等人的分布式光线跟踪方法，采用 Monte Carlo 方法对上式进行近似积分计算
-$$
-I_{xy}\:\approx\:\frac{1}{N}\sum_{j=1}^{N}\:r\:(\omega_{j},t_{j})\:L\:(\omega_{j},t_{j})
-$$
+$$ --> 
 
-式中，$N$ 为每个像素的采样数。
+<div align="center"><img style="background: white;" src="..\..\svg\swMuqSfkhX.svg"></div>
+
+式中，<!-- $\omega$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\583ug0M70k.svg"> 为像素对应的立体角，<!-- $\iota$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\eQmjv8KDFG.svg"> 为时间，<!-- $r(\omega,t)$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\8TdGHVxDcz.svg"> 为重构滤波器，<!-- $L(\omega,t)$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\bUsIIrRVLb.svg"> 为入射辐射度。
+根据 Cook 等人的分布式光线跟踪方法，采用 Monte Carlo 方法对上式进行近似积分计算
+
+<!-- $$
+I_{xy}\:\approx\:\frac{1}{N}\sum_{j=1}^{N}\:r\:(\omega_{j},t_{j})\:L\:(\omega_{j},t_{j})
+$$ --> 
+
+<div align="center"><img style="background: white;" src="..\..\svg\iXBWDbgxR0.svg"></div>
+
+式中，<!-- $N$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\CWqh8DeDhn.svg"> 为每个像素的采样数。
 
 ##### 自适应采样
 
@@ -388,7 +410,7 @@ $$
 
 2) 根据雨滴运动包围盒对整个场景建立 BVH(层次包围盒) 或 kd-tree 加速结构。
 
-3) 设置初始采样数，使用低差异采样方法对像素位置$(x,y)$ 和时间 $t$ 进行采样，生成采样光线。
+3) 设置初始采样数，使用低差异采样方法对像素位置 <!-- $(x,y)$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\pB5XpTDH3c.svg"> 和时间 <!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\hfO5qUMr7M.svg"> 进行采样，生成采样光线。
 
 4) 根据 2.1.2  节中的自适应采样方法判断是否需要生成更多的采样光线。对存在雨线的像素点使用大的采样数。
 
