@@ -221,17 +221,19 @@ Latent Diffusion Models整体框架如上图所示，首先需要训练好一个
 
 #### 图片感知压缩（Perceptual Image Compression）
 
-感知压缩通过对所学的空间 $z$ 进行任意的一维排序来对其分布进行自回归建模，从而忽略掉 $z$ 的许多固有结构。引入感知压缩就是说通过VAE这类自编码模型对原图片进行处理，忽略掉图片中的高频信息，只保留重要、基础的一些特征。这种方法，能够大幅降低训练和采样阶段的计算复杂度，让文图生成等任务能够在消费级GPU上快速生成图片。
+感知压缩通过对所学的空间 <!-- $z$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\tPEKUmYhGX.svg"> 进行任意的一维排序来对其分布进行自回归建模，从而忽略掉 <!-- $z$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\tPEKUmYhGX.svg"> 的许多固有结构。引入感知压缩就是说通过VAE这类自编码模型对原图片进行处理，忽略掉图片中的高频信息，只保留重要、基础的一些特征。这种方法，能够大幅降低训练和采样阶段的计算复杂度，让文图生成等任务能够在消费级GPU上快速生成图片。
 
 感知压缩主要利用一个预训练的自编码模型，该模型能够学习到一个在感知上等同于图像空间的潜在表示空间。这种方法的一个优势是只需要训练一个通用的自编码模型，就可以用于不同的扩散模型的训练，在不同的任务上使用。
 
 由此，基于感知压缩的扩散模型的训练本质上是一个**两阶段训练的过程**，第一阶段需要训练一个自编码器，第二阶段才需要训练扩散模型本身。在第一阶段训练自编码器时，为了避免潜在表示空间出现高度的异化，作者尝试了两种正则化方法，一种是KL-reg，另一种是VQ-reg，因此在官方发布的一阶段预训练模型中，会看到KL和VQ两种实现。在Stable Diffusion中主要采用AutoencoderKL这种实现。
 
-具体来说，给定图像<!-- $x \in \mathbb{R}^{H \times W \times 3}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/EPlvrPkdIF.svg"> ，我们可以先利用一个编码器 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/GhSjrNQ4In.svg"> 来将图像编码到潜在表示空间<!-- $z=\varepsilon(x)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/5xUpDO1HKj.svg"> ，其中 <!-- $z \in \mathbb{R}^{h \times w \times c}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/RXJKzXIqTc.svg">，然后再用解码器从潜在表示空间重建图片<!-- $\tilde{x} = D(z) = D(\varepsilon(x))$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/yppgWi5aDa.svg"> 。在感知压缩压缩的过程中，下采样系数的大小为 <!-- $f = \frac{H}{h}=\frac{W}{w}$， $f=2^{m},m \in N$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/0HTbu4sObX.svg"> 。
+具体来说，给定图像<!-- $x \in \mathbb{R}^{H \times W \times 3}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/EPlvrPkdIF.svg"> ，我们可以先利用一个编码器 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/GhSjrNQ4In.svg"> 来将图像编码到潜在表示空间<!-- $z=\varepsilon(x)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/5xUpDO1HKj.svg"> ，其中 <!-- $z \in \mathbb{R}^{h \times w \times c}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/RXJKzXIqTc.svg">，然后再用解码器从潜在表示空间重建图片<!-- $\tilde{x} = D(z) = D(\varepsilon(x))$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/yppgWi5aDa.svg"> 。在感知压缩压缩的过程中，下采样系数的大小为 <!-- $f = \frac{H}{h}=\frac{W}{w}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\lDKAuCAsP1.svg">， <!-- $f=2^{m},m \in N$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\is43l7vOqt.svg">
 
 #### 潜在扩散模型（Latent Diffusion Models）
 
-首先看一下普通的**扩散模型（Diffusion Models，DMs）**，它是一种概率模型。可以解释为一个时序去噪自编码器（equally weighted sequence of denoising autoencoders） <!-- $\epsilon_{\theta}(x_{t},t);t=1, \cdots ,T$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/ujR0F3CtAJ.svg">，其目标是根据输入$x_{t}$去预测一个对应去噪后的变体，或者说预测噪音，其中<!-- $x_{t}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/Hm7qfUEdPF.svg">是输入 <!-- $x$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/8Fga0bQ7RB.svg"> 的噪音版本。相应的目标函数可以写成如下形式：
+首先看一下普通的**扩散模型（Diffusion Models，DMs）**，它是一种概率模型。可以解释为一个时序去噪自编码器（equally weighted sequence of denoising autoencoders） <!-- $\epsilon_{\theta}(x_{t},t);t=1, \cdots ,T$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/ujR0F3CtAJ.svg">，其目标是根据输入
+<!-- $x_{t}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/Hm7qfUEdPF.svg">
+去预测一个对应去噪后的变体，或者说预测噪音，其中<!-- $x_{t}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/Hm7qfUEdPF.svg">是输入 <!-- $x$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/8Fga0bQ7RB.svg"> 的噪音版本。相应的目标函数可以写成如下形式：
 
 <!-- $$
 L_{DM}=\mathbb{E}_{x,t \sim \mathcal{N}(0,1),t}[\parallel \epsilon-\epsilon_{\theta}(z_{t},t) \parallel_{2}^{2}]
@@ -258,7 +260,7 @@ $$ -->
 
 #### 条件机制（Conditioning Mechanisms）
 
-除了无条件图片生成外，我们也可以进行条件图片生成，这主要是通过拓展得到一个条件时序去噪自编码器（conditional denoising autoencoder）<!-- $\epsilon_{\theta}(z_{t},t,y)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/UvqMXGmrDe.svg"> 来实现的，这样一来我们就可通过 <!-- $y$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/8BtHBnklRt.svg"> 来控制图片合成的过程。具体来说，论文通过在UNet主干网络上增加cross-attention机制来实现<!-- $\epsilon_{\theta}(z_{t},t,y)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/XgjaiZL6of.svg">。为了能够从多个不同的模态预处理 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/GhSjrNQ4In.svg"> ，论文引入了一个领域专用编码器（domain specific encoder）$\tau_{\theta}$ ，它用来将 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/GhSjrNQ4In.svg"> 映射为一个中间表示 <!-- $\tau_{\theta}(y) \in \mathbb{R}^{M \times d_{\tau}}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/ccBTPkK59m.svg"> ，这样我们就可以很方便的引入各种形态的条件（文本、类别、layout等等）。最终模型就可以通过一个cross-attention层映射将控制信息融入到UNet的中间层，cross-attention层的实现如下：
+除了无条件图片生成外，我们也可以进行条件图片生成，这主要是通过拓展得到一个条件时序去噪自编码器（conditional denoising autoencoder）<!-- $\epsilon_{\theta}(z_{t},t,y)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/UvqMXGmrDe.svg"> 来实现的，这样一来我们就可通过 <!-- $y$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/8BtHBnklRt.svg"> 来控制图片合成的过程。具体来说，论文通过在UNet主干网络上增加cross-attention机制来实现<!-- $\epsilon_{\theta}(z_{t},t,y)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/XgjaiZL6of.svg">。为了能够从多个不同的模态预处理 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/GhSjrNQ4In.svg"> ，论文引入了一个领域专用编码器（domain specific encoder）<!-- $\tau_{\theta}$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\hqbqGCPxjB.svg"> ，它用来将 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/GhSjrNQ4In.svg"> 映射为一个中间表示 <!-- $\tau_{\theta}(y) \in \mathbb{R}^{M \times d_{\tau}}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/ccBTPkK59m.svg"> ，这样我们就可以很方便的引入各种形态的条件（文本、类别、layout等等）。最终模型就可以通过一个cross-attention层映射将控制信息融入到UNet的中间层，cross-attention层的实现如下：
 
 <!-- $$
 Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d}} \cdot V), with \\
@@ -344,7 +346,7 @@ $$ -->
 
 <div align="center"><img style="background: white;" src="../../svg/7dC1zYEXkm.svg"></div>
 
-式中，r 为雨滴表面点离雨滴中心的距离，<!-- $\theta$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/4bZlOUWpIj.svg"> 和 <!-- $\varphi$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/1XqjLdeASy.svg"> 分别为该点关于$z$ 轴和$x$ 轴的倾斜角和方位角，<!-- $r_{0}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/hhRIo9FyLZ.svg"> 为雨滴半径，<!-- $A_{2,0}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/jmEi6qFmM2.svg">为轴对称模式幅值，<!-- $A_{3,1}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/vdz0AozFzJ.svg">为非轴对称模式幅值，<!-- $P_{2,0}\left(\theta\right)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/P9CuK1ggBu.svg"> 和<!-- $P_{3,1}\left(\theta\right)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/6XoVj9jZlu.svg">为 Legendre 多项式。 
+式中，r 为雨滴表面点离雨滴中心的距离，<!-- $\theta$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/4bZlOUWpIj.svg"> 和 <!-- $\varphi$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/1XqjLdeASy.svg"> 分别为该点关于 <!-- $z$ --> <img style="transform: translateY(0.1em); background: white;" src="..\..\svg\tPEKUmYhGX.svg"> 轴和 <!-- $x$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/8Fga0bQ7RB.svg"> 轴的倾斜角和方位角，<!-- $r_{0}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/hhRIo9FyLZ.svg"> 为雨滴半径，<!-- $A_{2,0}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/jmEi6qFmM2.svg">为轴对称模式幅值，<!-- $A_{3,1}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/vdz0AozFzJ.svg">为非轴对称模式幅值，<!-- $P_{2,0}\left(\theta\right)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/P9CuK1ggBu.svg"> 和<!-- $P_{3,1}\left(\theta\right)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/6XoVj9jZlu.svg">为 Legendre 多项式。 
 
 雨滴模型和绘制所用坐标系如下图所示：
 
@@ -383,7 +385,7 @@ $$ -->
 
 <!-- $$
 I_{xy}\:=\:\int_{\Omega}\:\int_{T}r\:(\:\omega\:,t)\:L\:(\omega\:,t)\:\mathrm{d}t\mathrm{d}\omega
-$$ --> 
+$$  -->
 
 <div align="center"><img style="background: white;" src="../../svg/swMuqSfkhX.svg"></div>
 
