@@ -244,7 +244,7 @@ $$ -->
 
 其中 <!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/hfO5qUMr7M.svg">从 <!-- $\{1,\cdots,T\}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/DxEWcJCXJP.svg"> 中均匀采样获得。
 
-在**潜在扩散模型**中，引入了预训练的感知压缩模型，它包括一个编码器 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/GhSjrNQ4In.svg"> 和一个解码器 $D$。这样就可以利用在训练时就可以利用编码器得到 <!-- $z_{t}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/gwDcDe1i17.svg">，从而让模型在潜在表示空间中学习，相应的目标函数可以写成如下形式：
+在**潜在扩散模型**中，引入了预训练的感知压缩模型，它包括一个编码器 <!-- $\varepsilon$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/GhSjrNQ4In.svg"> 和一个解码器 <!-- $D$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/Jgw4ixOpeO.svg">。这样就可以利用在训练时就可以利用编码器得到 <!-- $z_{t}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/gwDcDe1i17.svg">，从而让模型在潜在表示空间中学习，相应的目标函数可以写成如下形式：
 
 
 <!-- $$
@@ -370,9 +370,9 @@ $$ -->
 
 ##### 雨滴生成
 
-使用粒子系统来产生雨滴的动画。粒子系统中雨滴的参数包括半径<!-- $r_{0}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/N9MSrt1w6f.svg">，空间位置<!-- $(x_0,y_0,z_0)\:$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/UD2wp8jW7K.svg">， 旋转角<!-- $\phi_\mathrm{rot}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/1iV3kcnxvS.svg">，速度<!-- $v$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/cHyIZE7zur.svg">，时间<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/hfO5qUMr7M.svg">。
+使用粒子系统来产生雨滴的动画。粒子系统中雨滴的参数包括半径 <!-- $r_{0}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/N9MSrt1w6f.svg">，空间位置<!-- $(x_0,y_0,z_0)\:$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/UD2wp8jW7K.svg">， 旋转角<!-- $\phi_\mathrm{rot}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/1iV3kcnxvS.svg">，速度<!-- $v$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/cHyIZE7zur.svg">，时间<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/hfO5qUMr7M.svg">。
 
-1. 给定雨滴半径 $r_{0}$,可由雨滴大小计算雨滴速度 <!-- $v$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/cHyIZE7zur.svg">,或者设置想要的雨滴速度；
+1. 给定雨滴半径 <!-- $r_{0}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/N9MSrt1w6f.svg">,可由雨滴大小计算雨滴速度 <!-- $v$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/cHyIZE7zur.svg">,或者设置想要的雨滴速度；
 2.  根据雨滴密度和场景空间范围生成空间位置<!-- $(x_0,y_0,z_0)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/vreXpUawSM.svg">,旋转角<!-- $\phi_\mathrm{rot}$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/vs3kEezPdO.svg">与时间<!-- $t$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/hfO5qUMr7M.svg"> 随机分布的雨滴；
 3. 根据雨滴速度计算下一个时间步雨滴新的位置，如果超出场景空间范围则雨滴消失;
 4. 判断时间步是否超出设定值，是则结束，否则转步骤 2 。
@@ -381,7 +381,7 @@ $$ -->
 
 ##### 绘制方程
 
-考虑到曝光时间$T$,在像素位置$(x,y)$ 处的像素值可表示为
+考虑到曝光时间<!-- $T$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/idx9IoLnvm.svg">,在像素位置<!-- $(x,y)$ --> <img style="transform: translateY(0.1em); background: white;" src="../../svg/4RlkIpnH4x.svg"> 处的像素值可表示为
 
 <!-- $$
 I_{xy}\:=\:\int_{\Omega}\:\int_{T}r\:(\:\omega\:,t)\:L\:(\omega\:,t)\:\mathrm{d}t\mathrm{d}\omega
