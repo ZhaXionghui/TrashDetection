@@ -537,10 +537,11 @@ const selectedfjs = ref([
   { name: "PP-YOLOE-crn-s", code: "5" },
   { name: "PP-YOLOE-crn-l", code: "6" },
   { name: "PP-YOLOE-plus-crn-s", code: "7" },
-  { name: "PP-YOLOv2", code: "8" },
-  { name: "YOLOX-Tiny", code: "9" },
-  { name: "YOLOX-cdn-Tiny", code: "10" },
-  { name: "YOLOv8-n", code: "11" }
+  { name: "PP-YOLOE-plus-crn-l", code: "8" },
+  { name: "PP-YOLOv2", code: "9" },
+  { name: "YOLOX-Tiny", code: "10" },
+  { name: "YOLOX-cdn-Tiny", code: "11" },
+  { name: "YOLOv8-n", code: "12" }
 ]);
 const selectedfj = ref(null);
 

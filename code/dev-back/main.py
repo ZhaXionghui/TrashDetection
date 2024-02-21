@@ -8,45 +8,14 @@ import os
 import sys
 
 import time
-'''
-'code': 0,
-'msg': '登录成功',
-
-'code': 0,
-'msg': '数据存在',
-
-'code': 0,
-'msg': '注册成功',
-
-状态码
-'code': 4000,
-'msg': '用户名错误'
-
-'code': 4001,
-'msg': '密码错误'
-
-'code': 4002,
-'msg': '用户名不存在'
-
-'code':4003,
-'msg': '注册用户名已存在'
-
-'code': 4004,
-'msg': '确认密码错误'
-
-'code': 4005,
-'msg': '答案错误'
-
-'''
-# FB 为前后端交互部分
-# DB 为后端与数据库交互部分
-
+from Yolov8.detect import img2img, img2json
 
 app = Flask(__name__)
 # 设置可以跨域访问
 CORS(app, supports_credentials=True)
 
 # 图片部分
+# 对最新（上传）的图片进行推理，返回生成的图片及json文件的路径（static目录下）
 @app.route('/Inference', methods=['POST'])
 def Inference():
     # 获取客户端数据
@@ -185,7 +154,24 @@ def Inference():
                     'infer_json': infer_json
                 }
             }
-        # 8.调用PP-YOLOv2
+        # 8.调用PP-YOLOE-plus-crn-l
+        elif method == "PP-YOLOE-plus-crn-l":
+            os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/ppyoloe_plus_crn_l_80e_coco --image_file={} --device=CPU --save_images=True --save_results --output_dir={}'.format(imgpath, output_dir))
+            # 遍历output_dir下的文件，找到json文件
+            for file in os.listdir(output_dir):
+                if file.endswith('.json'):
+                    infer_json = os.path.join('static', 'output-infer', method, current_time, file)
+            for file in os.listdir(output_dir):
+                if file.endswith(('jpg','png','jpeg','bmp','.webp')):
+                    infer_img = os.path.join('static', 'output-infer', method, current_time, file)
+            return {
+                'code': 0,
+                'data': {
+                    'infer_img': infer_img,
+                    'infer_json': infer_json
+                }
+            }
+        # 9.调用PP-YOLOv2
         elif method == "PP-YOLOv2":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/ppyolov2_r50vd_dcn_365e_coco --image_file={} --device=CPU --save_images=True --save_results --output_dir={}'.format(imgpath, output_dir))
             # 遍历output_dir下的文件，找到json文件
@@ -202,7 +188,7 @@ def Inference():
                     'infer_json': infer_json
                 }
             }
-        # 9.调用YOLOX-Tiny
+        # 10.调用YOLOX-Tiny
         elif method == "YOLOX-Tiny":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/yolox_tiny_300e_coco --image_file={} --device=CPU --save_images=True --save_results --output_dir={}'.format(imgpath, output_dir))
             # 遍历output_dir下的文件，找到json文件
@@ -219,7 +205,7 @@ def Inference():
                     'infer_json': infer_json
                 }
             }
-        # 10.调用YOLOX-cdn-Tiny
+        # 11.调用YOLOX-cdn-Tiny
         elif method == "YOLOX-cdn-Tiny":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/yolox_cdn_tiny_300e_coco --image_file={} --device=CPU --save_images=True --save_results --output_dir={}'.format(imgpath, output_dir))
             # 遍历output_dir下的文件，找到json文件
@@ -236,7 +222,21 @@ def Inference():
                     'infer_json': infer_json
                 }
             }
-            
+        # 12.调用YOLOv8-n
+        elif method == "YOLOv8-n":
+            img_file = img2img(img=imgpath,path='/root/dev-back/static/output-infer/YOLOv8-n')
+            print('test',img_file.split('/')[-1])
+            json_file = img2json(img=imgpath,path='/root/dev-back/static/output-infer/YOLOv8-n')
+            print('test',json_file.split('/')[-1])
+            infer_img = os.path.join('static', 'output-infer', 'YOLOv8-n', img_file.split('/')[-1])
+            infer_json = os.path.join('static', 'output-infer', 'YOLOv8-n', json_file.split('/')[-1])
+            return {
+                'code': 0,
+                'data': {
+                    'infer_img': infer_img,
+                    'infer_json': infer_json
+                }
+            }
     except Exception as e:
         return {
             'code': 4001,
@@ -244,7 +244,7 @@ def Inference():
                 'msg': str(e)
             }
         }
-
+# 对样例图片进行推理，返回生成的图片及json文件的路径（static目录下）
 @app.route('/modelinfer', methods=['POST'])
 def modelinfer():
     """
@@ -389,7 +389,24 @@ def modelinfer():
                     'infer_json': infer_json
                 }
             }
-        # 8.调用PP-YOLOv2
+        # 8.调用PP-YOLOE-plus-crn-l
+        elif method == "PP-YOLOE-plus-crn-l":
+            os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/ppyoloe_plus_crn_l_80e_coco --image_file={} --device=CPU --save_images=True --save_results --output_dir={}'.format(imgpath, output_dir))
+            # 遍历output_dir下的文件，找到json文件
+            for file in os.listdir(output_dir):
+                if file.endswith('.json'):
+                    infer_json = os.path.join('static', 'output-infer', method, imgname, file)
+            for file in os.listdir(output_dir):
+                if file.endswith('.jpg'):
+                    infer_img = os.path.join('static', 'output-infer', method, imgname, file)
+            return {
+                'code': 0,
+                'data': {
+                    'infer_img': infer_img,
+                    'infer_json': infer_json
+                }
+            }
+        # 9.调用PP-YOLOv2
         elif method == "PP-YOLOv2":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/ppyolov2_r50vd_dcn_365e_coco --image_file={} --device=CPU --save_images=True --save_results --output_dir={}'.format(imgpath, output_dir))
             # 遍历output_dir下的文件，找到json文件
@@ -406,7 +423,7 @@ def modelinfer():
                     'infer_json': infer_json
                 }
             }
-        # 9.调用YOLOX-Tiny
+        # 10.调用YOLOX-Tiny
         elif method == "YOLOX-Tiny":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/yolox_tiny_300e_coco --image_file={} --device=CPU --save_images=True --save_results --output_dir={}'.format(imgpath, output_dir))
             # 遍历output_dir下的文件，找到json文件
@@ -423,7 +440,7 @@ def modelinfer():
                     'infer_json': infer_json
                 }
             }
-        # 10.调用YOLOX-cdn-Tiny
+        # 11.调用YOLOX-cdn-Tiny
         elif method == "YOLOX-cdn-Tiny":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/yolox_cdn_tiny_300e_coco --image_file={} --device=CPU --save_images=True --save_results --output_dir={}'.format(imgpath, output_dir))
             # 遍历output_dir下的文件，找到json文件
@@ -440,7 +457,21 @@ def modelinfer():
                     'infer_json': infer_json
                 }
             }
-            
+        # 12.调用YOLOv8-n
+        elif method == "YOLOv8-n":
+            img_file = img2img(img=imgpath,path='/root/dev-back/static/output-infer/YOLOv8-n')
+            print('test',img_file.split('/')[-1])
+            json_file = img2json(img=imgpath,path='/root/dev-back/static/output-infer/YOLOv8-n')
+            print('test',json_file.split('/')[-1])
+            infer_img = os.path.join('static', 'output-infer', 'YOLOv8-n', img_file.split('/')[-1])
+            infer_json = os.path.join('static', 'output-infer', 'YOLOv8-n', json_file.split('/')[-1])
+            return {
+                'code': 0,
+                'data': {
+                    'infer_img': infer_img,
+                    'infer_json': infer_json
+                }
+            }
     except Exception as e:
         return {
             'code': 4001,
@@ -448,7 +479,7 @@ def modelinfer():
                 'msg': str(e)
             }
         }
-
+# 接收上传的图片
 @app.route('/Upload', methods=['POST'])
 def Upload():
     # 获取前端上传form-data格式的文件
@@ -475,6 +506,7 @@ def Upload():
     }
 
 # 视频部分
+# 对最新（上传）的视频进行推理，返回生成的视频的路径（static目录下）
 @app.route('/VideoInference', methods=['POST'])
 def VideoInference():
     # 获取客户端数据
@@ -586,7 +618,20 @@ def VideoInference():
                     'infer_video': infer_video
                 }
             }
-        # 8.调用PP-YOLOv2
+        # 8.调用PP-YOLOE-plus-crn-l
+        elif method == "PP-YOLOE-plus-crn-l":
+            os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/ppyoloe_plus_crn_l_80e_coco --video_file={} --device=CPU --save_results --output_dir={}'.format(video_path, output_dir))
+            # 遍历output_dir下的文件，找到mp4文件
+            for file in os.listdir(output_dir):
+                if file.endswith('.mp4'):
+                    infer_video = os.path.join('static', 'output-video-infer', method, current_time, file)
+            return {
+                'code': 0,
+                'data': {
+                    'infer_video': infer_video
+                }
+            }
+        # 9.调用PP-YOLOv2
         elif method == "PP-YOLOv2":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/ppyolov2_r50vd_dcn_365e_coco --video_file={} --device=CPU --save_results --output_dir={}'.format(video_path, output_dir))
             # 遍历output_dir下的文件，找到mp4文件
@@ -599,7 +644,7 @@ def VideoInference():
                     'infer_video': infer_video
                 }
             }
-        # 9.调用YOLOX-Tiny
+        # 10.调用YOLOX-Tiny
         elif method == "YOLOX-Tiny":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/yolox_tiny_300e_coco --video_file={} --device=CPU --save_results --output_dir={}'.format(video_path, output_dir))
             # 遍历output_dir下的文件，找到mp4文件
@@ -612,7 +657,7 @@ def VideoInference():
                     'infer_video': infer_video
                 }
             }
-        # 10.调用YOLOX-cdn-Tiny
+        # 11.调用YOLOX-cdn-Tiny
         elif method == "YOLOX-cdn-Tiny":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/yolox_cdn_tiny_300e_coco --video_file={} --device=CPU --save_results --output_dir={}'.format(video_path, output_dir))
             # 遍历output_dir下的文件，找到mp4文件
@@ -633,7 +678,7 @@ def VideoInference():
                 'msg': str(e)
             }
         }
-
+# 对样例视频进行推理，返回生成的视频的路径（static目录下）
 @app.route('/modelinfervideo', methods=['POST'])
 def modelinfervideo():
     # 获取客户端数据
@@ -748,7 +793,20 @@ def modelinfervideo():
                     'infer_video': infer_video
                 }
             }
-        # 8.调用PP-YOLOv2
+        # 8.调用PP-YOLOE-plus-crn-l
+        elif method == "PP-YOLOE-plus-crn-l":
+            os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/ppyoloe_plus_crn_l_80e_coco --video_file={} --device=CPU --save_results --output_dir={}'.format(video_path, output_dir))
+            # 遍历output_dir下的文件，找到mp4文件
+            for file in os.listdir(output_dir):
+                if file.endswith('.mp4'):
+                    infer_video = os.path.join('static', 'output-video-infer', method, current_time, file)
+            return {
+                'code': 0,
+                'data': {
+                    'infer_video': infer_video
+                }
+            }
+        # 9.调用PP-YOLOv2
         elif method == "PP-YOLOv2":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/ppyolov2_r50vd_dcn_365e_coco --video_file={} --device=CPU --save_results --output_dir={}'.format(video_path, output_dir))
             # 遍历output_dir下的文件，找到mp4文件
@@ -761,7 +819,7 @@ def modelinfervideo():
                     'infer_video': infer_video
                 }
             }
-        # 9.调用YOLOX-Tiny
+        # 10.调用YOLOX-Tiny
         elif method == "YOLOX-Tiny":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/yolox_tiny_300e_coco --video_file={} --device=CPU --save_results --output_dir={}'.format(video_path, output_dir))
             # 遍历output_dir下的文件，找到mp4文件
@@ -774,7 +832,7 @@ def modelinfervideo():
                     'infer_video': infer_video
                 }
             }
-        # 10.调用YOLOX-cdn-Tiny
+        # 11.调用YOLOX-cdn-Tiny
         elif method == "YOLOX-cdn-Tiny":
             os.system('python ./PaddleDetection/deploy/python/infer.py --model_dir=./PaddleDetection/output_inference/yolox_cdn_tiny_300e_coco --video_file={} --device=CPU --save_results --output_dir={}'.format(video_path, output_dir))
             # 遍历output_dir下的文件，找到mp4文件
@@ -787,7 +845,7 @@ def modelinfervideo():
                     'infer_video': infer_video
                 }
             }
-        
+
     except Exception as e:
         return {
             'code': 4001,
@@ -795,7 +853,7 @@ def modelinfervideo():
                 'msg': str(e)
             }
         }
-
+# 接收上传的视频文件
 @app.route('/UploadVideo', methods=['POST'])
 def UploadVideo():
     # 获取前端上传form-data格式的文件
@@ -823,5 +881,5 @@ def UploadVideo():
 
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port=5000)
-    app.run(host='0.0.0.0', port=5000,debug=True)
+    app.run(host='0.0.0.0', port=5000)
+    # app.run(host='0.0.0.0', port=5000,debug=True)
